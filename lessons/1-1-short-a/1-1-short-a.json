@@ -12,19 +12,19 @@
   "app": "https://games.readingforall.com/l1-1-short-a/",
   "pdfs": [
     {
-      "label": "\ud83d\udcc4 Download Worksheet",
-      "description": "Practice Page",
-      "url": "https://docs.google.com/document/d/1WP8jKPMeLqJfLVEuKq4kf2TLM1sRUfgIJuzY-1Pa754/edit?usp=sharing"
+      "label": "\ud83d\udcc4 CVC Sentences",
+      "description": "Short A Practice Sentences",
+      "url": "/lessons/1-1-short-a/ShortA-CVCSentences-v2.pdf"
     },
     {
-      "label": "\ud83d\udccb Parent Guide",
-      "description": "How to Use This Lesson",
-      "url": "PASTE_PDF_LINK_HERE"
+      "label": "\ud83d\udccb Word List",
+      "description": "Short A Word List",
+      "url": "/lessons/1-1-short-a/ShortA-WordList-v2.pdf"
     },
     {
-      "label": "\u270f\ufe0f Activity Sheet",
-      "description": "Extra Practice",
-      "url": "PASTE_PDF_LINK_HERE"
+      "label": "\u270f\ufe0f Sight Words Explainer",
+      "description": "Sight Words Guide",
+      "url": "/lessons/1-1-short-a/SightWords-Explainer-v2.pdf"
     }
   ],
   "description": "Master the most common sound of the letter A. Every strong reader starts here.",
