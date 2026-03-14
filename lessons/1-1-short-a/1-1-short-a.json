@@ -1,0 +1,37 @@
+{
+  "lesson": "1.1",
+  "title": "Short A",
+  "subtitle": "with Abby & Otto",
+  "pillar": 1,
+  "level": 1,
+  "character": "Abby",
+  "brand": "Reading For All\u2122",
+  "youtube": "https://www.youtube.com/embed/59YOFigg0og",
+  "fliphtml5": "https://online.fliphtml5.com/ReadingForAll/chcz/",
+  "spotify": "https://open.spotify.com/embed/track/3io3452YSBpZsmlcgmP46G?utm_source=generator",
+  "app": "https://games.readingforall.com/l1-1-short-a/",
+  "pdfs": [
+    {
+      "label": "\ud83d\udcc4 Download Worksheet",
+      "description": "Practice Page",
+      "url": "https://docs.google.com/document/d/1WP8jKPMeLqJfLVEuKq4kf2TLM1sRUfgIJuzY-1Pa754/edit?usp=sharing"
+    },
+    {
+      "label": "\ud83d\udccb Parent Guide",
+      "description": "How to Use This Lesson",
+      "url": "PASTE_PDF_LINK_HERE"
+    },
+    {
+      "label": "\u270f\ufe0f Activity Sheet",
+      "description": "Extra Practice",
+      "url": "PASTE_PDF_LINK_HERE"
+    }
+  ],
+  "description": "Master the most common sound of the letter A. Every strong reader starts here.",
+  "whatYouWillLearn": [
+    "Recognize the short A sound in words",
+    "Practice reading and writing short A words",
+    "Build phonemic awareness with Abby & Otto",
+    "Strengthen your reading foundation"
+  ]
+}
