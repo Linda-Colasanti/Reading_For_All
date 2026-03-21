@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading For All™ — Lesson 1.1: Short A</title>
+
+  <!-- ── OPEN GRAPH META TAGS ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Reading For All™" />
+  <meta property="og:title" content="Reading For All™ — Lesson 1.1: Short A" />
+  <meta property="og:description" content="Master the most common sound of the letter A. Every strong reader starts here. Follow Abby &amp; Otto with the Reading For All™ system." />
+  <meta property="og:image" content="https://lessons.readingforall.com/og/lesson-1-1-short-a.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://lessons.readingforall.com/lessons/1-1-short-a/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reading For All™ — Lesson 1.1: Short A" />
+  <meta name="twitter:description" content="Master the most common sound of the letter A. Every strong reader starts here." />
+  <meta name="twitter:image" content="https://lessons.readingforall.com/og/lesson-1-1-short-a.png" />
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -386,6 +401,38 @@
       letter-spacing: 0.12em;
     }
 
+
+    /* ── INSTRUCTION BANNER ── */
+    .instruction-banner {
+      background: linear-gradient(135deg, rgba(245,200,66,0.12), rgba(245,200,66,0.06));
+      border-top: 1px solid rgba(245,200,66,0.2);
+      border-bottom: 1px solid rgba(245,200,66,0.2);
+      padding: 1rem 2rem;
+    }
+
+    .instruction-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .instruction-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .instruction-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .instruction-text strong {
+      color: var(--gold);
+    }
 
     /* ── CARD BANNERS ── */
     .card-banner {
@@ -875,6 +922,10 @@
   <div class="learn-section">
     <div class="learn-inner">
       <div class="learn-item">
+        <div class="learn-dot" style="background:var(--gold)"></div>
+        Watch the lesson guide first
+      </div>
+      <div class="learn-item">
         <div class="learn-dot" style="background:var(--red)"></div>
         Recognize the short A sound in words
       </div>
@@ -884,7 +935,7 @@
       </div>
       <div class="learn-item">
         <div class="learn-dot" style="background:var(--green)"></div>
-        Build phonemic awareness with Abby &amp; Otto
+        Read the book together with your child
       </div>
       <div class="learn-item">
         <div class="learn-dot" style="background:var(--blue)"></div>
@@ -893,16 +944,72 @@
     </div>
   </div>
 
+  <!-- INSTRUCTION BANNER -->
+  <div class="instruction-banner">
+    <div class="instruction-inner">
+      <span class="instruction-icon">🌟</span>
+      <div class="instruction-text">
+        <strong>First time here?</strong> Start at the top and work your way down.<br/>
+        <span style="color:rgba(255,255,255,0.6);">Returning? Skip the explainer and jump straight to your review!</span>
+      </div>
+    </div>
+  </div>
+
   <!-- MAIN CONTENT -->
   <main class="main">
 
-    <!-- 1. VIDEO -->
+    <!-- 0. SUZY EXPLAINER — HOW TO USE THIS LESSON -->
+    <div class="card">
+      <div class="card-banner" style="background: linear-gradient(135deg, #0d1b3e 0%, #1a2f6e 50%, #0f2060 100%); border-bottom: 2px solid rgba(245,200,66,0.4);">
+        <div class="banner-step" style="color:rgba(245,200,66,0.8);">Start Here</div>
+        <div class="banner-icon">🎓</div>
+        <div class="banner-text">
+          <div class="banner-title" style="color:var(--gold);">How to Use This Lesson</div>
+          <div class="banner-sub">Watch this first — 60 seconds with your guide</div>
+        </div>
+        <div class="banner-number" style="color:rgba(245,200,66,0.1); font-size:4rem;">✦</div>
+      </div>
+      <div class="video-wrapper">
+        <div class="embed-placeholder placeholder-blue">
+          <div class="placeholder-emoji">🎓</div>
+          <div class="placeholder-text">Your lesson guide is coming soon</div>
+          <div class="placeholder-shimmer"></div>
+        </div>
+        <iframe src="https://www.youtube.com/embed/9fOFvUWgGtY?rel=0"
+          title="How to Use This Lesson"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          onload="this.previousElementSibling.style.opacity='0'"></iframe>
+      </div>
+    </div>
+
+    <!-- 1. REVIEW OPENER — controlled by JSON hasReview field -->
+    <div class="card" id="reviewCard" style="display:none;">
+      <div class="card-banner" style="background: linear-gradient(135deg, #1a2f6e 0%, #2a4a9e 100%);">
+        <div class="banner-step" style="color:rgba(255,255,255,0.7);">Quick Review</div>
+        <div class="banner-icon">🔄</div>
+        <div class="banner-text">
+          <div class="banner-title" style="color:#fff;">Before We Begin</div>
+          <div class="banner-sub">A quick review to warm up your brain</div>
+        </div>
+        <div class="banner-number" style="color:rgba(255,255,255,0.08);">✦</div>
+      </div>
+      <div class="video-wrapper" id="reviewVideoWrapper">
+        <div class="embed-placeholder placeholder-blue">
+          <div class="placeholder-emoji">🔄</div>
+          <div class="placeholder-text">Loading review</div>
+          <div class="placeholder-shimmer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. TEACHING VIDEO -->
     <div class="card" id="watch">
       <div class="card-banner banner-red">
-        <div class="banner-step">Step 1</div>
+        <div class="banner-step">Step 1 &middot; Watch</div>
         <div class="banner-icon">🎬</div>
         <div class="banner-text">
-          <div class="banner-title">Watch</div>
+          <div class="banner-title">Teaching Video</div>
           <div class="banner-sub">Teaching Video</div>
         </div>
         <div class="banner-number">01</div>
@@ -1086,5 +1193,42 @@
   </footer>
 
 
+  <script>
+    // Read lesson config from JSON
+    // This runs when the page loads and shows/hides review based on JSON
+    const lessonConfig = {
+      hasReview: false,  // Set to true in JSON for paid lessons
+      reviewVideo: ""    // YouTube embed URL for review video
+    };
+
+    // Function to initialize lesson from JSON
+    function initLesson(config) {
+      // Show/hide review card based on hasReview
+      const reviewCard = document.getElementById('reviewCard');
+      if (config.hasReview && config.reviewVideo) {
+        reviewCard.style.display = 'block';
+        const wrapper = document.getElementById('reviewVideoWrapper');
+        wrapper.innerHTML = `
+          <div class="embed-placeholder placeholder-blue">
+            <div class="placeholder-emoji">🔄</div>
+            <div class="placeholder-text">Loading review</div>
+            <div class="placeholder-shimmer"></div>
+          </div>
+          <iframe src="${config.reviewVideo}"
+            title="Quick Review"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            onload="this.previousElementSibling.style.opacity='0'"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
+          </iframe>`;
+      } else {
+        reviewCard.style.display = 'none';
+      }
+    }
+
+    // Initialize with current config
+    // When JSON system is fully connected, this will read from the JSON file
+    initLesson(lessonConfig);
+  </script>
 </body>
 </html>
