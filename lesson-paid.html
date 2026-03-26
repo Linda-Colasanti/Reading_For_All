@@ -1247,7 +1247,7 @@
 
     // Initialize with current config
     // When JSON system is fully connected, this will read from the JSON file
-    initLesson(lessonConfig);
+    async function loadLesson() {   const pathParts = window.location.pathname.split('/').filter(Boolean);   const lessonFolder = pathParts[pathParts.length - 1];   const jsonUrl = `/lessons/${lessonFolder}/${lessonFolder}.json`;   try {     const response = await fetch(jsonUrl);     const config = await response.json();     initLesson(config);   } catch (err) {     console.error('Could not load lesson:', err);   } } loadLesson();
   </script>
 </body>
 </html>
