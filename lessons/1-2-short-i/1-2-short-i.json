@@ -1,0 +1,44 @@
+{
+  "lesson": "1.2",
+  "title": "Short I",
+  "subtitle": "with Abby & Otto",
+  "pillar": 1,
+  "level": 2,
+  "character": "Abby",
+  "brand": "Reading For All™",
+  "hasReview": true,
+  "review": "PASTE REVIEW VIDEO EMBED URL HERE",
+  "youtube": "PASTE TEACHING VIDEO EMBED URL HERE",
+  "fliphtml5": "PASTE FLIPHTML5 BOOK URL HERE",
+  "spotify": "PASTE SPOTIFY EMBED URL HERE",
+  "app": "PASTE GAME LINK HERE",
+  "pdfs": [
+    {
+      "label": "📄 Download Word List",
+      "description": "Short I Word List",
+      "url": "https://assets.readingforall.com/rf4i/ShortI-WordList-v2.pdf"
+    },
+    {
+      "label": "📄 Download Sentences",
+      "description": "Short I CVC Sentences",
+      "url": "https://assets.readingforall.com/rf4i/ShortI-CVCSentences-v2.pdf"
+    },
+    {
+      "label": "📄 Parent Guide",
+      "description": "Short I Parent Guide",
+      "url": "https://assets.readingforall.com/rf4i/ShortI-ParentGuide-v2.pdf"
+    },
+    {
+      "label": "📄 Mad Lib Practice",
+      "description": "Short I Mad Lib",
+      "url": "https://assets.readingforall.com/rf4i/Short%20I%20Mad%20Lib.pdf"
+    }
+  ],
+  "description": "Learn to read and spell Short I words with Abby & Otto!",
+  "whatYouWillLearn": [
+    "Identify the Short I vowel sound",
+    "Read Short I CVC words",
+    "Spell Short I words accurately",
+    "Read Short I in simple sentences"
+  ]
+}
