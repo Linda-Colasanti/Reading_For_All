@@ -620,7 +620,7 @@
     // ── LOAD CORRECT JSON FROM URL ───────────────────────────
     async function loadLesson() {
       const pathParts = window.location.pathname.split('/').filter(Boolean);
-      const lessonFolder = pathParts[pathParts.length - 1];
+      const params = new URLSearchParams(window.location.search); const lessonFolder = params.get('lesson') || pathParts[pathParts.length - 1];
       const jsonUrl = `/lessons/${lessonFolder}/${lessonFolder}.json`;
 
       try {
