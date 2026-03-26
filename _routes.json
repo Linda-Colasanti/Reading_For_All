@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": []
+}
+```
+
+Commit it.
+
+Then also edit `_redirects` to contain exactly this:
+```
+/lessons/:lesson/ /lesson-paid.html 200
