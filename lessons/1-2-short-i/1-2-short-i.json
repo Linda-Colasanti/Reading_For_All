@@ -7,11 +7,11 @@
   "character": "Abby",
   "brand": "Reading For All™",
   "hasReview": true,
-  "review": "PASTE REVIEW VIDEO EMBED URL HERE",
-  "youtube": "PASTE TEACHING VIDEO EMBED URL HERE",
-  "fliphtml5": "PASTE FLIPHTML5 BOOK URL HERE",
-  "spotify": "PASTE SPOTIFY EMBED URL HERE",
-  "app": "PASTE GAME LINK HERE",
+  "review": "https://www.youtube.com/embed/AJkeUBUbucI?rel=0",
+  "youtube": "https://www.youtube.com/embed/hjLIqKI65XY?rel=0",
+  "fliphtml5": "https://online.fliphtml5.com/ReadingForAll/chcz/",
+  "spotify": "https://open.spotify.com/embed/track/3io3452YSBpZsmlcgmP46G?utm_source=generator&theme=0&t=0&t=0",
+  "app": "https://games.readingforall.com/l1-03-p7x4-short-i/",
   "pdfs": [
     {
       "label": "📄 Download Word List",
