@@ -1,0 +1,39 @@
+{
+  "lesson": "1.2",
+  "title": "Short E",
+  "subtitle": "with Abby & Otto",
+  "pillar": 1,
+  "level": 2,
+  "character": "Otto",
+  "brand": "Reading For All™",
+  "hasReview": true,
+  "review": "PASTE REVIEW VIDEO EMBED URL HERE",
+  "youtube": "PASTE TEACHING VIDEO EMBED URL HERE",
+  "fliphtml5": "PASTE FLIPHTML5 BOOK URL HERE",
+  "spotify": "PASTE SPOTIFY EMBED URL HERE",
+  "app": "PASTE GAME LINK HERE",
+  "pdfs": [
+    {
+      "label": "📄 Download Word List",
+      "description": "Short E Word List",
+      "url": "PASTE R2 URL HERE"
+    },
+    {
+      "label": "📄 Download Sentences",
+      "description": "Short E CVC Sentences",
+      "url": "PASTE R2 URL HERE"
+    },
+    {
+      "label": "📄 Sight Words",
+      "description": "Sight Words Explainer",
+      "url": "PASTE R2 URL HERE"
+    }
+  ],
+  "description": "One sentence describing this lesson.",
+  "whatYouWillLearn": [
+    "Learning goal 1",
+    "Learning goal 2",
+    "Learning goal 3",
+    "Learning goal 4"
+  ]
+}
