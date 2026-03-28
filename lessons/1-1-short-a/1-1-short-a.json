@@ -1,43 +1,39 @@
 {
   "lesson": "1.1",
+  "heroDisplay": "A",
   "title": "Short A",
-  "subtitle": "with Abby & Otto",
-  "pillar": 1,
-  "level": 1,
-  "character": "Abby",
-  "brand": "Reading For All\u2122",
-  "youtube": "https://www.youtube.com/embed/59YOFigg0og",
-  "fliphtml5": "https://online.fliphtml5.com/ReadingForAll/chcz/",
-  "spotify": "https://open.spotify.com/embed/track/3io3452YSBpZsmlcgmP46G?utm_source=generator",
-  "app": "https://games.readingforall.com/l1-1-short-a/",
+  "subtitle": "Lesson 1.1 — Master the /ă/ sound",
+  "hasReview": false,
+  "explainerVideo": "https://www.youtube.com/embed/9fOFvUWgGtY?rel=0",
+  "reviewVideo": "",
+  "teachingVideo": "https://www.youtube.com/embed/59YOFigg0og?rel=0",
+  "bookUrl": "https://online.fliphtml5.com/ReadingForAll/chcz/",
+  "gameUrl": "https://games.readingforall.com/l1-01-free-short-a",
+  "spotifyTrack": "3io3452YSBpZsmlcgmP46G",
   "pdfs": [
     {
-      "label": "\ud83d\udcc4 CVC Sentences",
-      "description": "Short A Practice Sentences",
-      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/ShortA-CVCSentences-v2.pdf"
+      "label": "Parent Guide",
+      "sublabel": "How to Use This Lesson",
+      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/ShortA-ParentGuide-Final2.pdf",
+      "locked": false
     },
     {
-      "label": "\ud83d\udccb Word List",
-      "description": "Short A Word List",
-      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/ShortA-WordList-v2.pdf"
+      "label": "Short A Word List",
+      "sublabel": "Short A",
+      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/ShortA-WordList-v2.pdf",
+      "locked": false
     },
     {
-      "label": "\u270f\ufe0f Sight Words Explainer",
-      "description": "Sight Words Guide",
-      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/SightWords-Explainer-v2.pdf"
+      "label": "Short A CVC Sentences",
+      "sublabel": "Practice Sentences",
+      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/ShortA-CVCSentences-v2.pdf",
+      "locked": false
     },
     {
-      "label": "\ud83d\udcda Parent Guide",
-      "description": "Short A Parent Guide",
-      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/ShortA-ParentGuide-Final2.pdf"
+      "label": "Short A Mad Lib Story",
+      "sublabel": "Fun Writing Activity",
+      "url": "https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/Short-A-MadLib.pdf",
+      "locked": false
     }
-  ],
-  ],
-  "description": "Master the most common sound of the letter A. Every strong reader starts here.",
-  "whatYouWillLearn": [
-    "Recognize the short A sound in words",
-    "Practice reading and writing short A words",
-    "Build phonemic awareness with Abby & Otto",
-    "Strengthen your reading foundation"
   ]
 }
