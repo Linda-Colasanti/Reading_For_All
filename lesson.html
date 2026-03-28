@@ -1228,7 +1228,7 @@
 
       let config;
       try {
-        const res = await fetch(`lessons/${lessonId}/lesson.json`);
+        const res = await fetch(`lessons/${lessonId}/${lessonId}.json`);
         if (!res.ok) throw new Error('JSON not found');
         config = await res.json();
       } catch (e) {
