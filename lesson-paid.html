@@ -1372,7 +1372,39 @@
       }
     }
 
-    loadLesson();
-  </script>
+    //loadLesson();
+  <script>
+  /** * STEP 5: THE SMART SWAP SCRIPT
+   * This looks at the URL for "?lesson=..." and updates the page data.
+   */
+  async function syncLessonContent() {
+    const params = new URLSearchParams(window.location.search);
+    const lessonId = params.get('lesson') || '1-1-short-a';
+    const jsonPath = `/lessons/${lessonId}/${lessonId}.json`;
+
+    try {
+      const response = await fetch(jsonPath);
+      if (!response.ok) return;
+      const data = await response.json();
+
+      // Update the Hero Letter (A -> I)
+      const heroLetter = document.getElementById('heroLetter');
+      if (heroLetter && data.heroDisplay) {
+        heroLetter.innerText = data.heroDisplay;
+      }
+
+      // Update the Lesson Title (Short A -> Short I)
+      const titleDisplay = document.getElementById('lessonTitleDisplay');
+      if (titleDisplay && data.lessonTitle) {
+        titleDisplay.innerText = data.lessonTitle;
+      }
+    } catch (err) {
+      console.error("Error syncing lesson details:", err);
+    }
+  }
+
+  // Run the sync
+  syncLessonContent();
+</script>
 </body>
 </html>
