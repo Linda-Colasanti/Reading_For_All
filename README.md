@@ -1,88 +1,44 @@
 # Reading For All™ — Lesson System Guide
-### How to publish a new lesson in 60 seconds
+
+This repository contains the automated "Smart Swap" lesson engine. Each lesson is powered by a single Master Template (`lesson-paid.html`) and controlled by individual JSON data files.
+
+## **The Master Template**
+* **lesson-paid.html**: NEVER edit this file. It contains the logic that swaps out the letters, titles, videos, and PDFs based on the URL.
+
+## **Your Folder Structure**
+To keep URLs clean (e.g., `.../lessons/1-2-short-i`), every lesson has its own folder inside the `lessons/` directory.
+
+- **lessons/**
+  - **1-1-short-a/**
+    - `index.html` (The Redirect)
+    - `1-1-short-a.json` (The Data)
+  - **1-2-short-i/**
+    - `index.html`
+    - `1-2-short-i.json`
 
 ---
 
-## Your Folder Structure
+## **SOP: How to Publish a New Lesson (e.g., Short O)**
 
-```
-reading-for-all/
-  lesson.html          ← NEVER touch this (the master template)
-  lessons/
-    1-1-short-a.json   ← one file per lesson
-    1-2-short-e.json
-    1-3-short-i.json
-    ... and so on
-  README.md            ← this file
-```
+### **Step 1: Assets (Cloudflare)**
+Upload your 4 PDFs to the `/rf4i/` folder in Cloudflare. 
+**Naming Convention:** `ShortO-WordList.pdf`, `ShortO-CVCSentences.pdf`, `ShortO-ParentGuide.pdf`, `ShortO-MadLib.pdf`.
 
----
+### **Step 2: Create the Folder (GitHub)**
+Inside the `lessons/` directory, create a new folder: `1-3-short-o`.
 
-## To Publish a New Lesson
+### **Step 3: Add the Redirect (GitHub)**
+Inside that new folder, create a file named `index.html` and paste this code:
+`<script>window.location.replace('/lesson-paid.html?lesson=1-3-short-o');</script>`
 
-1. Copy any existing `.json` file from the `lessons/` folder
-2. Rename it to match the new lesson (e.g. `1-2-short-e.json`)
-3. Open it and update these fields:
+### **Step 4: Add the Data (GitHub)**
+Inside that same folder, create `1-3-short-o.json`. Copy the code from a previous lesson and update the following:
+* `"title"`: "Short O"
+* `"heroDisplay"`: "O"
+* `"youtube"`: (New YouTube Embed Link)
+* `"pdfs"`: (Update the 4 PDF URLs to match Step 1)
 
-```json
-{
-  "lesson": "1.2",
-  "title": "Short E",
-  "subtitle": "with Abby & Otto",
-  "pillar": 1,
-  "level": 1,
-  "character": "Otto",
-  "brand": "Reading For All™",
-  "youtube": "PASTE YOUTUBE EMBED LINK HERE",
-  "fliphtml5": "PASTE FLIPHTML5 LINK HERE",
-  "spotify": "PASTE SPOTIFY EMBED LINK HERE",
-  "app": "PASTE GAME LINK HERE",
-  "pdfs": [
-    {
-      "label": "📄 Download Worksheet",
-      "description": "Practice Page",
-      "url": "PASTE GOOGLE DRIVE OR PDF LINK HERE"
-    }
-  ],
-  "description": "One sentence describing this lesson.",
-  "whatYouWillLearn": [
-    "Learning goal 1",
-    "Learning goal 2",
-    "Learning goal 3",
-    "Learning goal 4"
-  ]
-}
-```
-
-4. Save the file to the `lessons/` folder in GitHub
-5. Netlify auto-publishes within 60 seconds ✅
-
----
-
-## How to Get Embed Links
-
-| Content | Where to get the link |
-|---|---|
-| YouTube | Share → Embed → copy the `src="..."` URL only |
-| Spotify | Share → Embed → copy the `src="..."` URL only |
-| FlipHTML5 | Share → copy the page URL |
-| Google Drive PDF | Share → Anyone with link → Copy link |
-| Game/App | Just use the direct URL |
-
----
-
-## Lesson Naming Convention
-
-| Lesson | Filename |
-|---|---|
-| Pillar 1, Lesson 1 | `1-1-short-a.json` |
-| Pillar 1, Lesson 2 | `1-2-short-e.json` |
-| Pillar 2, Lesson 1 | `2-1-silent-e.json` |
-| Pillar 3, Lesson 1 | `3-1-three-syllable-words.json` |
-
----
-
-## Brand Colors (for reference)
+* ## Brand Colors (for reference)
 
 - Navy: `#0d1b3e`
 - Gold: `#f5c842`
