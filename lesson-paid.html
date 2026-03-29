@@ -1374,8 +1374,9 @@
 
     //loadLesson();
   <script>
-  /** * STEP 5: THE SMART SWAP SCRIPT
-   * This looks at the URL for "?lesson=..." and updates the page data.
+  /** * THE MASTER SWAP SCRIPT (Final Version)
+   * This pulls everything from your JSON and puts it on the page.
+   * Updates: Hero Letter, Title, Video Link, and Game Link.
    */
   async function syncLessonContent() {
     const params = new URLSearchParams(window.location.search);
@@ -1384,26 +1385,45 @@
 
     try {
       const response = await fetch(jsonPath);
-      if (!response.ok) return;
+      if (!response.ok) {
+        console.error("Could not find JSON for:", lessonId);
+        return;
+      }
       const data = await response.json();
 
-      // Update the Hero Letter (A -> I)
+      // 1. Update the Gold Hero Letter (e.g., "I")
       const heroLetter = document.getElementById('heroLetter');
       if (heroLetter && data.heroDisplay) {
         heroLetter.innerText = data.heroDisplay;
       }
 
-      // Update the Lesson Title (Short A -> Short I)
+      // 2. Update the Lesson Title (e.g., "Short I")
       const titleDisplay = document.getElementById('lessonTitleDisplay');
-      if (titleDisplay && data.lessonTitle) {
-        titleDisplay.innerText = data.lessonTitle;
+      if (titleDisplay && data.title) {
+        titleDisplay.innerText = data.title;
       }
+
+      // 3. Update the "Watch the Video" Button
+      const videoBtn = document.querySelector('a[href="#watch"]');
+      if (videoBtn && data.youtube) {
+        videoBtn.href = data.youtube;
+        videoBtn.target = "_blank"; 
+      }
+
+      // 4. Update the "Play the Game" Button
+      // This looks for the badge link with the 🎮 emoji
+      const gameBtn = document.querySelector('a[href="#play"]');
+      if (gameBtn && data.app) {
+        gameBtn.href = data.app;
+        gameBtn.target = "_blank";
+      }
+
     } catch (err) {
       console.error("Error syncing lesson details:", err);
     }
   }
 
-  // Run the sync
+  // Run the sync immediately on page load
   syncLessonContent();
 </script>
 </body>
