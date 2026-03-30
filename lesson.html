@@ -893,7 +893,7 @@
       <div class="hero-row">
         <div class="hero-letter" id="heroLetter">A</div>
         <div class="hero-title-block">
-          <div class="hero-title" id="lessonTitleDisplay">ShortA</div>
+          <div class="hero-title" id="lessonTitleDisplay">Short A</div>
           <div class="hero-subtitle">with Abby &amp; Otto</div>
         </div>
       </div>
@@ -983,7 +983,7 @@
       </div>
     </div>
 
-    <!-- 1. REVIEW OPENER — controlled by JSON hasReview field -->
+    <!-- 1. REVIEW OPENER — hidden for Short A (first lesson, no review needed) -->
     <div class="card" id="reviewCard" style="display:none;">
       <div class="card-banner" style="background: linear-gradient(135deg, #1a2f6e 0%, #2a4a9e 100%);">
         <div class="banner-step" style="color:rgba(255,255,255,0.7);">Quick Review</div>
@@ -1150,16 +1150,16 @@
             </div>
             <span style="color:var(--gold); font-size:1.1rem;">→</span>
           </a>
-          <div class="pdf-btn" style="opacity:0.45; cursor:not-allowed; pointer-events:none;">
+          <a href="https://assets.readingforall.com/rf4a/lessons/l1-01-free-short-a/Short-A-MadLib.pdf" target="_blank" class="pdf-btn">
             <div class="pdf-btn-left">
-              <span style="font-size:1.4rem">📖</span>
+              <span style="font-size:1.4rem">🎭</span>
               <div>
                 <div>Short A Mad Lib Story</div>
-                <div class="pdf-label">Coming Soon</div>
+                <div class="pdf-label">Fun Practice</div>
               </div>
             </div>
-            <span style="color:var(--gold); font-size:1.1rem;">🔒</span>
-          </div>
+            <span style="color:var(--gold); font-size:1.1rem;">→</span>
+          </a>
           <div class="pdf-upsell">
             More worksheets in the<br/>
             <a href="https://stan.store/readingforall" target="_blank">Complete Short Vowels Package →</a>
@@ -1211,168 +1211,5 @@
     </p>
   </footer>
 
-
-  
-  <script>
-    // ══════════════════════════════════════════════════════
-    // READING FOR ALL™ — MASTER LESSON LOADER
-    // This script reads the ?id= parameter from the URL,
-    // fetches the matching lesson.json, and populates the
-    // entire page. To create a new lesson, add a new folder
-    // and lesson.json — never touch this HTML file.
-    // ══════════════════════════════════════════════════════
-
-    async function loadLesson() {
-      const params  = new URLSearchParams(window.location.search);
-      const lessonId = params.get('id') || '1-1-short-a';
-
-      let config;
-      try {
-        const res = await fetch(`lessons/${lessonId}/${lessonId}.json`);
-        if (!res.ok) throw new Error('JSON not found');
-        config = await res.json();
-      } catch (e) {
-        console.warn('lesson.json not found for id:', lessonId);
-        return; // page falls back to hardcoded Short A defaults
-      }
-
-      // ── Page title ──
-      if (config.title && config.lesson) {
-        document.title = `Reading For All™ — Lesson ${config.lesson}: ${config.title}`;
-      }
-
-      // ── Brand tag ──
-      const brandTag = document.querySelector('.brand-tag');
-      if (brandTag && config.lesson) {
-        brandTag.textContent = `Reading For All™ · Pillar 1 · Lesson ${config.lesson}`;
-      }
-
-      // ── Hero display (letter OR phrase) ──
-      const heroLetter = document.querySelector('.hero-letter');
-      if (heroLetter && config.heroDisplay) {
-        const display = config.heroDisplay;
-        // If it's a single character, keep big letter style
-        // If it's a phrase, shrink the font to fit
-        if (display.length === 1) {
-          heroLetter.textContent = display;
-        } else {
-          heroLetter.textContent = display;
-          heroLetter.style.fontSize = 'clamp(1.8rem, 4vw, 3rem)';
-          heroLetter.style.lineHeight = '1.2';
-          heroLetter.style.maxWidth = '280px';
-        }
-        // Update floating letters to match
-        document.querySelectorAll('.fl').forEach(el => {
-          el.textContent = el.textContent === el.textContent.toUpperCase()
-            ? display.charAt(0).toUpperCase()
-            : display.charAt(0).toLowerCase();
-        });
-      }
-
-      // ── Hero title & subtitle ──
-      const heroTitle = document.querySelector('.hero-title');
-      if (heroTitle && config.title) heroTitle.textContent = config.title;
-
-      const heroSubtitle = document.querySelector('.hero-subtitle');
-      if (heroSubtitle && config.subtitle) heroSubtitle.textContent = config.subtitle;
-
-      // ── Explainer video (How to Use This Lesson) ──
-      if (config.explainerVideo) {
-        const explainerIframe = document.querySelector('#card-explainer iframe');
-        if (explainerIframe) explainerIframe.src = config.explainerVideo;
-      }
-
-      // ── Review card ──
-      const reviewCard = document.getElementById('reviewCard');
-      if (config.hasReview && config.reviewVideo) {
-        reviewCard.style.display = 'block';
-        const wrapper = document.getElementById('reviewVideoWrapper');
-        wrapper.innerHTML = `
-          <div class="embed-placeholder placeholder-blue">
-            <div class="placeholder-emoji">🔄</div>
-            <div class="placeholder-text">Loading review</div>
-            <div class="placeholder-shimmer"></div>
-          </div>
-          <iframe src="${config.reviewVideo}"
-            title="Quick Review"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            onload="this.previousElementSibling.style.opacity='0'"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
-          </iframe>`;
-      } else {
-        if (reviewCard) reviewCard.style.display = 'none';
-      }
-
-      // ── Teaching video ──
-      if (config.teachingVideo) {
-        const teachIframe = document.querySelector('#watch iframe');
-        if (teachIframe) teachIframe.src = config.teachingVideo;
-      }
-
-      // ── Book / flipbook ──
-      if (config.bookUrl) {
-        const bookIframe = document.querySelector('#book iframe');
-        if (bookIframe) bookIframe.src = config.bookUrl;
-      }
-
-      // ── Game ──
-      if (config.gameUrl) {
-        const gameIframe = document.querySelector('#play iframe');
-        if (gameIframe) gameIframe.src = config.gameUrl;
-        const gameLink = document.querySelector('#play a[target="_blank"]');
-        if (gameLink) gameLink.href = config.gameUrl;
-      }
-
-      // ── Spotify ──
-      if (config.spotifyTrack) {
-        const spotifyIframe = document.querySelector('.spotify-wrapper iframe');
-        if (spotifyIframe) {
-          spotifyIframe.src = `https://open.spotify.com/embed/track/${config.spotifyTrack}?utm_source=generator&theme=0`;
-        }
-      }
-
-      // ── PDFs ──
-      if (config.pdfs && config.pdfs.length) {
-        const pdfSection = document.querySelector('.pdf-section');
-        if (pdfSection) {
-          const upsell = pdfSection.querySelector('.pdf-upsell');
-          pdfSection.innerHTML = '';
-
-          config.pdfs.forEach(pdf => {
-            const isMadLib = pdf.label.toLowerCase().includes('mad lib');
-            const isSentence = pdf.label.toLowerCase().includes('sentence');
-            const icon = pdf.locked ? '🔒' : isMadLib ? '🎭' : isSentence ? '📄' : '📋';
-
-            const btn = document.createElement('a');
-            btn.className = 'pdf-btn';
-
-            if (pdf.locked) {
-              btn.style.cssText = 'opacity:0.45; cursor:not-allowed; pointer-events:none;';
-            } else {
-              btn.href = pdf.url;
-              btn.target = '_blank';
-            }
-
-            btn.innerHTML = `
-              <div class="pdf-btn-left">
-                <span style="font-size:1.4rem">${icon}</span>
-                <div>
-                  <div>${pdf.label}</div>
-                  <div class="pdf-label">${pdf.sublabel || ''}</div>
-                </div>
-              </div>
-              <span style="color:var(--gold); font-size:1.1rem;">${pdf.locked ? '🔒' : '→'}</span>`;
-
-            pdfSection.appendChild(btn);
-          });
-
-          if (upsell) pdfSection.appendChild(upsell);
-        }
-      }
-    }
-
-    loadLesson();
-  </script>
 </body>
 </html>
