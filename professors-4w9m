@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Professor's AI Playbook — Linda Colasanti</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Reading For All™" />
+  <meta property="og:title" content="The Professor's AI Playbook" />
+  <meta property="og:description" content="A Practitioner's Framework for Higher Ed Leaders. Stop fighting AI. Start using it better than your students do." />
+  <meta property="og:url" content="https://lessons.readingforall.com/professors-4w9m" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Professor's AI Playbook" />
+  <meta name="twitter:description" content="Stop fighting AI. Start using it better than your students do." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:   #0d1b3e;
+      --navy2:  #0a1530;
+      --gold:   #f5c842;
+      --gold2:  #e8a820;
+      --white:  #fffef9;
+      --red:    #e84040;
+      --orange: #f97316;
+      --yellow: #f5c842;
+      --green:  #22c55e;
+      --blue:   #3b82f6;
+      --indigo: #6366f1;
+      --violet: #a855f7;
+      --teal:   #14b8a6;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── RAINBOW BAR ── */
+    .rainbow-bar {
+      height: 6px;
+      background: linear-gradient(90deg,
+        var(--red) 0%, var(--orange) 16%, var(--yellow) 32%,
+        var(--green) 48%, var(--blue) 64%, var(--indigo) 80%, var(--violet) 100%);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 3.5rem 2rem 3rem;
+      text-align: left;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 0% 50%, #1a2f6e 0%, transparent 60%),
+        radial-gradient(ellipse at 100% 0%, #0f1f55 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, #06112b 0%, transparent 60%),
+        linear-gradient(135deg, #0d1b3e 0%, #0c1a4a 40%, #0a1535 100%);
+      z-index: 0;
+    }
+
+    .floating-letters {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .fl {
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      color: rgba(245,200,66,0.06);
+      user-select: none;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110%) rotate(-10deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(-110%) rotate(10deg); opacity: 0; }
+    }
+
+    .hero-photo {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 110%;
+      max-width: 50%;
+      object-fit: contain;
+      object-position: bottom right;
+      z-index: 2;
+      opacity: 0.18;
+      mix-blend-mode: luminosity;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 40%, transparent 100%);
+      filter: contrast(1.1) brightness(1.2);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,
+        rgba(13,27,62,0.95) 0%,
+        rgba(13,27,62,0.7) 45%,
+        rgba(13,27,62,0.1) 100%);
+      z-index: 3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      max-width: 580px;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1.5px solid rgba(245,200,66,0.4);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-icon {
+      font-size: clamp(4rem, 12vw, 7rem);
+      line-height: 1;
+      filter: drop-shadow(0 0 30px rgba(245,200,66,0.4));
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+
+    .hero-title-block {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.3s;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .hero-hook {
+      font-size: 1rem;
+      color: var(--gold);
+      font-weight: 800;
+      margin-top: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      margin-top: 1rem;
+      max-width: 460px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.45s;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.6s;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .badge:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+
+    .avatar-guide {
+      position: absolute;
+      bottom: -20px;
+      right: 2rem;
+      z-index: 5;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 6px rgba(245,200,66,0.15), 0 20px 40px rgba(0,0,0,0.4);
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+
+    .avatar-guide img { width: 100%; height: 100%; object-fit: cover; }
+
+    .avatar-label {
+      position: absolute;
+      bottom: -52px;
+      right: 2rem;
+      z-index: 5;
+      text-align: center;
+      width: 130px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.9s;
+    }
+
+    /* ── LEARN STRIP ── */
+    .learn-section {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.8rem 2rem;
+      margin-top: 3rem;
+    }
+
+    .learn-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .learn-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .learn-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── INSTRUCTION BANNER ── */
+    .instruction-banner {
+      background: linear-gradient(135deg, rgba(245,200,66,0.12), rgba(245,200,66,0.06));
+      border-top: 1px solid rgba(245,200,66,0.2);
+      border-bottom: 1px solid rgba(245,200,66,0.2);
+      padding: 1rem 2rem;
+    }
+
+    .instruction-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .instruction-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+    .instruction-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .instruction-text strong { color: var(--gold); }
+
+    /* ── MAIN ── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245,200,66,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+
+    /* ── CARD BANNERS ── */
+    .card-banner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.4rem 1.8rem;
+      overflow: hidden;
+    }
+
+    .banner-step {
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      position: absolute;
+      top: 0.6rem;
+      left: 1.8rem;
+    }
+
+    .banner-icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+      margin-top: 0.6rem;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    }
+
+    .banner-text { flex: 1; margin-top: 0.6rem; }
+
+    .banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .banner-sub {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.2rem;
+      letter-spacing: 0.03em;
+    }
+
+    .banner-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      position: absolute;
+      right: 1.2rem;
+      bottom: -0.5rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .banner-red    { background: linear-gradient(135deg, #c0392b 0%, #e84040 50%, #ff6b6b 100%); }
+    .banner-blue   { background: linear-gradient(135deg, #1a56db 0%, #3b82f6 50%, #60a5fa 100%); }
+    .banner-green  { background: linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%); }
+    .banner-violet { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%); }
+    .banner-gold   { background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f5c842 100%); }
+    .banner-teal   { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #2dd4bf 100%); }
+    .banner-pink   { background: linear-gradient(135deg, #be185d 0%, #ec4899 50%, #f472b6 100%); }
+    .banner-navy   { background: linear-gradient(135deg, #0d1b3e 0%, #1a2f6e 50%, #0f2060 100%); border-bottom: 2px solid rgba(245,200,66,0.4); }
+
+    /* ── CARD BODY ── */
+    .card-body {
+      padding: 1.8rem;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .card-body p:last-child { margin-bottom: 0; }
+
+    .card-body strong { color: var(--gold); }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: linear-gradient(135deg, rgba(245,200,66,0.1), rgba(245,200,66,0.05));
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 1rem 1.4rem;
+      margin: 1.2rem 0;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+    }
+
+    /* ── QUESTIONS LIST ── */
+    .question-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .question-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      transition: border-color 0.2s;
+    }
+
+    .question-item:hover { border-color: rgba(245,200,66,0.3); }
+
+    .question-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 0.1rem;
+    }
+
+    .question-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    /* ── PROMPT BOX ── */
+    .prompt-card {
+      background: rgba(20, 184, 166, 0.07);
+      border: 1px solid rgba(20,184,166,0.25);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 14px 14px 0;
+      margin: 1.2rem 0;
+      overflow: hidden;
+    }
+
+    .prompt-label {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding: 0.7rem 1.2rem 0.4rem;
+    }
+
+    .prompt-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      padding: 0 1.2rem 0.8rem;
+      font-style: italic;
+    }
+
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 1.2rem 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(20,184,166,0.15);
+      border: 1.5px solid rgba(20,184,166,0.4);
+      border-radius: 999px;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .copy-btn:hover {
+      background: rgba(20,184,166,0.28);
+      border-color: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    .copy-btn.copied {
+      background: rgba(34,197,94,0.2);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ── TOOLS TABLE ── */
+    .tools-grid {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1.8fr 3fr 1.4fr;
+      gap: 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .tool-row.header {
+      background: rgba(245,200,66,0.08);
+      border-color: rgba(245,200,66,0.2);
+    }
+
+    .tool-cell {
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.5;
+    }
+
+    .tool-cell:last-child { border-right: none; }
+
+    .tool-row.header .tool-cell {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .tool-name { font-weight: 800; color: var(--white); }
+
+    .tool-url {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .tool-url:hover { color: var(--gold); }
+
+    /* ── NEXT STEPS ── */
+    .steps-grid {
+      display: grid;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .step-row {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      transition: border-color 0.2s;
+    }
+
+    .step-row:hover { border-color: rgba(245,200,66,0.25); }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .step-content { flex: 1; }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* ── EMBED WRAPPERS ── */
+    .embed-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      z-index: 1;
+      transition: opacity 0.5s ease;
+      overflow: hidden;
+    }
+
+    .placeholder-green { background: linear-gradient(135deg, #08150a 0%, #0f2d12 100%); }
+    .placeholder-red   { background: linear-gradient(135deg, #1a0808 0%, #2d0f0f 100%); }
+    .placeholder-blue  { background: linear-gradient(135deg, #080d1a 0%, #0f1a2d 100%); }
+
+    .placeholder-emoji {
+      font-size: 3.5rem;
+      animation: placeholderPulse 2s ease-in-out infinite;
+    }
+
+    .placeholder-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .placeholder-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 50%, transparent 60%);
+      background-size: 200% 100%;
+      animation: shimmer 2.5s infinite;
+    }
+
+    @keyframes placeholderPulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .video-wrapper, .game-wrapper, .book-wrapper {
+      position: relative;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-wrapper { padding-bottom: 56.25%; }
+    .game-wrapper  { padding-bottom: 65%; }
+    .book-wrapper  { padding-bottom: 62%; }
+
+    .video-wrapper iframe,
+    .game-wrapper iframe,
+    .book-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      z-index: 2;
+    }
+
+    .spotify-wrapper { padding: 1.5rem; }
+    .spotify-wrapper iframe { border-radius: 12px; width: 100%; border: none; }
+
+    .spotify-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ── DEMO SECTION LABEL ── */
+    .demo-intro {
+      padding: 1.8rem 1.8rem 0;
+    }
+
+    .demo-intro p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ── NOTE BOX ── */
+    .note-box {
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      margin: 1rem 0;
+    }
+
+    .note-box strong { color: #60a5fa; }
+
+    /* ── TWO COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* ── CLOSING QUOTE ── */
+    .closing-quote {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .closing-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .closing-quote .line1 { color: var(--white); font-weight: 700; }
+    .closing-quote .line2 { color: rgba(255,255,255,0.6); font-weight: 400; }
+    .closing-quote .line3 { color: var(--teal); font-weight: 700; }
+    .closing-quote .line4 { color: rgba(255,255,255,0.5); font-weight: 400; }
+
+    /* ── SOCIAL LINKS ── */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+
+    .social-btn.facebook { background: rgba(24,119,242,0.12); border-color: rgba(24,119,242,0.3); color: #60a5fa; }
+    .social-btn.facebook:hover { background: rgba(24,119,242,0.25); border-color: #3b82f6; transform: translateY(-2px); }
+    .social-btn.instagram { background: rgba(228,64,95,0.12); border-color: rgba(228,64,95,0.3); color: #f472b6; }
+    .social-btn.instagram:hover { background: rgba(228,64,95,0.25); border-color: #ec4899; transform: translateY(-2px); }
+    .social-btn.youtube { background: rgba(255,0,0,0.1); border-color: rgba(255,0,0,0.25); color: #f87171; }
+    .social-btn.youtube:hover { background: rgba(255,0,0,0.2); border-color: #ef4444; transform: translateY(-2px); }
+    .social-btn.linkedin { background: rgba(10,102,194,0.12); border-color: rgba(10,102,194,0.3); color: #60a5fa; }
+    .social-btn.linkedin:hover { background: rgba(10,102,194,0.25); border-color: #0a66c2; transform: translateY(-2px); }
+
+    .footer-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      border-radius: 999px;
+      margin: 0 auto 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.3);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    footer span { color: var(--gold); }
+
+    footer .footer-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(245,200,66,0.3);
+      margin: 0 auto 1rem;
+      display: block;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      .two-col { grid-template-columns: 1fr; }
+      .tool-row { grid-template-columns: 1fr; }
+      .tool-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .tool-cell:last-child { border-bottom: none; }
+      .hero { text-align: center; min-height: auto; padding: 2.5rem 1.5rem 2rem; }
+      .hero-content { max-width: 100%; }
+      .hero-row { justify-content: center; }
+      .hero-photo { opacity: 0.08; }
+      .avatar-guide { display: none; }
+      .hero-badges { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rainbow-bar"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="floating-letters">
+      <span class="fl" style="left:5%;  font-size:4rem;  animation-duration:12s; animation-delay:0s;">A</span>
+      <span class="fl" style="left:15%; font-size:2rem;  animation-duration:15s; animation-delay:2s;">I</span>
+      <span class="fl" style="left:25%; font-size:5rem;  animation-duration:18s; animation-delay:4s;">?</span>
+      <span class="fl" style="left:60%; font-size:3rem;  animation-duration:14s; animation-delay:1s;">A</span>
+      <span class="fl" style="left:70%; font-size:6rem;  animation-duration:20s; animation-delay:3s;">I</span>
+      <span class="fl" style="left:80%; font-size:2.5rem;animation-duration:11s; animation-delay:5s;">?</span>
+      <span class="fl" style="left:90%; font-size:4rem;  animation-duration:16s; animation-delay:7s;">A</span>
+      <span class="fl" style="left:45%; font-size:3.5rem;animation-duration:13s; animation-delay:6s;">I</span>
+    </div>
+
+    <img class="hero-photo" src="https://assets.readingforall.com/Images/Linda.PNG" alt="Linda Colasanti" />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="brand-tag">Linda Colasanti Consulting &middot; For Educators &middot; ILA Summit 2026</div>
+      <div class="hero-row">
+        <div class="hero-icon">🧠</div>
+        <div class="hero-title-block">
+          <div class="hero-title">The Professor's<br/>AI Playbook</div>
+          <div class="hero-subtitle">A Practitioner's Framework for Higher Ed Leaders</div>
+          <div class="hero-hook">Stop fighting AI. Start using it better than your students do.</div>
+        </div>
+      </div>
+      <p class="hero-description">
+        Built from 15+ years working with students that traditional classroom instruction didn't reach. This is not theory. This is a field guide -- with prompts you can use today, questions that reveal real mastery, and a live demo of what AI-powered structured learning actually looks like.
+      </p>
+      <div class="hero-badges">
+        <span class="badge" style="background:linear-gradient(135deg,#f5c842,#e8a820);color:#0d1b3e;">⭐ ILA Summit Resource</span>
+        <a href="#part1" class="badge" style="background:linear-gradient(135deg,#e84040,#ff6b6b);color:#fff;">📖 Read the Framework</a>
+        <a href="#prompts" class="badge" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);color:#fff;">📋 Copy the Prompts</a>
+        <a href="#demo" class="badge" style="background:linear-gradient(135deg,#22c55e,#4ade80);color:#fff;">🎮 Try the Demo</a>
+      </div>
+    </div>
+
+    <div class="avatar-guide">
+      <img src="https://assets.readingforall.com/Images/Suzy.png" alt="Reading For All Guide" />
+    </div>
+    <div class="avatar-label">Your Guide</div>
+  </section>
+
+  <!-- LEARN STRIP -->
+  <div class="learn-section">
+    <div class="learn-inner">
+      <div class="learn-item"><div class="learn-dot" style="background:var(--gold)"></div>Understand the real problem underneath AI misuse</div>
+      <div class="learn-item"><div class="learn-dot" style="background:var(--red)"></div>Learn the Flip framework for your classroom</div>
+      <div class="learn-item"><div class="learn-dot" style="background:var(--green)"></div>Get 3 questions that reveal real mastery instantly</div>
+      <div class="learn-item"><div class="learn-dot" style="background:var(--blue)"></div>Copy ready-to-use prompts for grading and prep</div>
+      <div class="learn-item"><div class="learn-dot" style="background:var(--teal)"></div>See AI-powered structured learning live</div>
+    </div>
+  </div>
+
+  <!-- INSTRUCTION BANNER -->
+  <div class="instruction-banner">
+    <div class="instruction-inner">
+      <span class="instruction-icon">🌟</span>
+      <div class="instruction-text">
+        <strong>New here?</strong> Start at Part One and work your way down. Each section builds on the last.<br/>
+        <span style="color:rgba(255,255,255,0.6);">Already have a copy? Jump to the Prompt Library or the Live Demo below.</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- ── NOTE FROM LINDA ── -->
+    <div class="card" id="note">
+      <div class="card-banner banner-navy">
+        <div class="banner-step" style="color:rgba(245,200,66,0.8);">Start Here</div>
+        <div class="banner-icon">✍️</div>
+        <div class="banner-text">
+          <div class="banner-title" style="color:var(--gold);">A Note From Linda</div>
+          <div class="banner-sub">Why this resource exists</div>
+        </div>
+        <div class="banner-number" style="color:rgba(245,200,66,0.08);">✦</div>
+      </div>
+      <div class="card-body">
+        <p>This resource was built from 15+ years as a Dyslexia Specialist and Orton-Gillingham practitioner -- working with students that traditional classroom instruction did not reach. I am not a classroom teacher. I am the person educators call when their students are still struggling. That perspective is exactly why this playbook exists.</p>
+        <p>I am also a certified AI consultant and implementation specialist. I build AI-powered learning tools and use AI every single day in my practice. And I am telling you -- from the inside -- that <strong>AI alone will never close the learning gap</strong>. Because the gap is never just about skills. Underneath every skill gap is a belief gap.</p>
+        <div class="callout">This is not a research document. It is a practitioner's framework built from real-world work with struggling learners of all ages. Some tools here will fit your context immediately. Others may need adapting. Take what serves your students and leave the rest.</div>
+        <p>I hold certifications across three pillars: dyslexia and reading intervention, master-level NLP executive coaching, and AI consulting and implementation. I was one of five people who architected North Carolina House Bill 149, signed into law July 20, 2017 -- the first dyslexia legislation in the state of North Carolina.</p>
+        <p style="font-style:italic;color:rgba(255,255,255,0.55);">I don't sell AI hype. I build with it. -- Linda Colasanti</p>
+      </div>
+    </div>
+
+    <!-- ── PART ONE ── -->
+    <div class="card" id="part1">
+      <div class="card-banner banner-red">
+        <div class="banner-step">Part One</div>
+        <div class="banner-icon">🔍</div>
+        <div class="banner-text">
+          <div class="banner-title">Understanding the Real Problem</div>
+          <div class="banner-sub">AI did not create this crisis</div>
+        </div>
+        <div class="banner-number">01</div>
+      </div>
+      <div class="card-body">
+        <p>Every higher education leader is watching the same scene play out. A student who seemed engaged in class submits work that is clearly not their own. A brilliant mind sits in the back of the room, hood up, phone out, completely disengaged.</p>
+        <div class="callout">AI did not create the literacy gap. It revealed it -- and gave students a faster way to hide it.</div>
+        <p>The student who uses ChatGPT to write their paper did not develop that habit in your classroom. They developed it somewhere around second or third grade, when reading got hard and nobody had the right answer. By the time they arrived at your institution they had spent a decade perfecting the art of looking like they don't care -- because not caring hurts less than trying and failing.</p>
+        <p>That is not an engagement problem. That is a belief and identity wound that has been following that student for fifteen years. <strong>And it just landed in your classroom.</strong></p>
+        <p>Underneath every skill gap is a belief gap. A student who believes they are not capable will not become capable -- no matter how sophisticated your intervention or how powerful your technology. Fixing the skill without addressing the belief is like patching a roof without fixing the foundation.</p>
+        <p>Before you write a student off -- ask yourself: Have I considered that this student might be embarrassed? That reading aloud in class might be their worst nightmare? That their silence is protection, not defiance?</p>
+      </div>
+    </div>
+
+    <!-- ── PART TWO ── -->
+    <div class="card" id="part2">
+      <div class="card-banner banner-blue">
+        <div class="banner-step">Part Two</div>
+        <div class="banner-icon">🔄</div>
+        <div class="banner-text">
+          <div class="banner-title">The Flip</div>
+          <div class="banner-sub">Assign AI outside. Prove mastery inside.</div>
+        </div>
+        <div class="banner-number">02</div>
+      </div>
+      <div class="card-body">
+        <p>The most common institutional response to AI in the classroom is detection and punishment. This approach has one fundamental problem: it positions you in a permanent arms race with technology that will always be one step ahead.</p>
+        <div class="callout">Stop fighting AI. Start using it strategically. Flip the script -- and take your classroom back.</div>
+
+        <p><strong>Step 1: Assign AI as the learning tool outside class.</strong> Rather than banning AI from homework, assign it intentionally. Give students a specific AI-assisted task designed to help them learn the material -- not just produce an output.</p>
+        <p>Examples that work: Have students use Claude or ChatGPT to generate a first draft of an argument, then ask them to identify three things the AI got wrong. Ask them to prompt AI to argue the opposite side of their thesis and then write a rebuttal. Have them use AI to summarize a reading -- then find the errors.</p>
+        <p>That last one is particularly powerful. AI makes mistakes -- confidently. A student who actually read the material will catch them instantly. A student who relied entirely on AI will not. <strong>You have just created a natural integrity check without accusation.</strong></p>
+
+        <p><strong>Step 2: Prove mastery inside the classroom.</strong> Whatever the AI-assisted assignment produces outside class, the student must be able to defend, discuss, and demonstrate inside class. In real time. In front of you. Where nothing can be faked.</p>
+
+        <div class="note-box">
+          <strong>Why this works:</strong> Students who used AI to actually learn the material will perform well. Students who used AI to avoid learning will be exposed naturally -- without accusation, without AI detection software, without confrontation. Your domain expertise becomes irreplaceable again. No AI can replicate what you know about your field at the depth you know it.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PART THREE ── -->
+    <div class="card" id="part3">
+      <div class="card-banner banner-green">
+        <div class="banner-step">Part Three</div>
+        <div class="banner-icon">🎯</div>
+        <div class="banner-text">
+          <div class="banner-title">The Three Questions</div>
+          <div class="banner-sub">What reveals real mastery instantly</div>
+        </div>
+        <div class="banner-number">03</div>
+      </div>
+      <div class="card-body">
+        <p>You do not need a lengthy oral exam. You need three well-placed questions that make it immediately clear whether a student understands the material -- or just knows how to prompt a language model. These work across every subject and every level.</p>
+        <p style="font-style:italic;color:rgba(255,255,255,0.55);">Delivery note: Ask these as genuine curiosity, not interrogation. The student who is unprepared will feel it immediately. The student who is prepared will feel respected. Tone is everything.</p>
+
+        <div class="question-list">
+          <div class="question-item">
+            <div class="question-num">1</div>
+            <div>
+              <div class="question-text">"Walk me through why you made the argument you did -- not what the argument is, but why that one."</div>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">AI can produce an argument. It cannot explain the reasoning process behind choosing that argument. Listen for: evidence of independent thought, awareness of alternatives rejected.</p>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">2</div>
+            <div>
+              <div class="question-text">"AI makes mistakes about this topic. What did you notice that was wrong or incomplete in what it produced?"</div>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">This assumes AI use -- removing shame and accusation entirely. A student who read the source material will have no trouble. Listen for: specific, accurate identification of a genuine gap or error.</p>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">3</div>
+            <div>
+              <div class="question-text">"If you had to apply this concept to [a specific real-world scenario from your field], what would that actually look like?"</div>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">Fill in the scenario from your own deep knowledge -- something a generalist AI handles superficially. This is where your expertise becomes the irreplaceable measuring stick. Listen for: specificity, nuance, field-awareness.</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout">You do not need all three every time. One well-placed question mid-discussion can tell you what you need to know about an entire class's engagement level.</div>
+      </div>
+    </div>
+
+    <!-- ── PART FOUR ── -->
+    <div class="card" id="part4">
+      <div class="card-banner banner-violet">
+        <div class="banner-step">Part Four</div>
+        <div class="banner-icon">👁️</div>
+        <div class="banner-text">
+          <div class="banner-title">The Invisible Struggler</div>
+          <div class="banner-sub">What disengagement actually looks like</div>
+        </div>
+        <div class="banner-number">04</div>
+      </div>
+      <div class="card-body">
+        <p>Not every student who reaches for AI is lazy. Some are hiding something that has nothing to do with laziness -- and everything to do with shame. After 15+ years working with the students classrooms could not reach, I can tell you that the most common reason a capable person stops engaging is not lack of effort. It is the belief that effort will only confirm what they already suspect about themselves.</p>
+
+        <p><strong>Signs to watch for:</strong></p>
+        <div class="question-list">
+          <div class="question-item"><div class="question-num" style="font-size:1rem;width:28px;height:28px;background:rgba(168,85,247,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--violet);">•</div><div class="question-text">Avoids reading aloud or presenting from text</div></div>
+          <div class="question-item"><div class="question-num" style="font-size:1rem;width:28px;height:28px;background:rgba(168,85,247,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--violet);">•</div><div class="question-text">Verbal participation is strong but written work is significantly weaker</div></div>
+          <div class="question-item"><div class="question-num" style="font-size:1rem;width:28px;height:28px;background:rgba(168,85,247,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--violet);">•</div><div class="question-text">Sudden increase in AI-polished writing that does not match their verbal voice</div></div>
+          <div class="question-item"><div class="question-num" style="font-size:1rem;width:28px;height:28px;background:rgba(168,85,247,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--violet);">•</div><div class="question-text">Engages well in conversation but struggles to translate ideas to written form</div></div>
+        </div>
+
+        <p style="margin-top:1rem;"><strong>What you can do:</strong> Create a dignified private pathway. A quiet conversation. A discreet referral. A resource they can access on their own terms without anyone knowing they used it.</p>
+        <div class="callout">Reading For All is a private, device-based structured literacy community where adult learners can access foundational reading instruction without embarrassment. No one needs to know. Everyone is on their device. If you have a student you suspect is struggling at a foundational level -- there is somewhere dignified to send them now. readingforall.com</div>
+      </div>
+    </div>
+
+    <!-- ── PART FIVE ── -->
+    <div class="card" id="part5">
+      <div class="card-banner banner-gold">
+        <div class="banner-step">Part Five</div>
+        <div class="banner-icon">⏱️</div>
+        <div class="banner-text">
+          <div class="banner-title">AI as Your Tool</div>
+          <div class="banner-sub">Save 5 hours a week on grading and lesson prep</div>
+        </div>
+        <div class="banner-number">05</div>
+      </div>
+      <div class="card-body">
+        <p>Most conversations about AI in higher education focus on what students are doing with it. Almost none focus on what professors could be doing with it. You have deep domain expertise that took decades to build. AI should be amplifying that expertise -- not threatening it.</p>
+        <p>Here is where your time goes and how AI reclaims it:</p>
+        <div class="note-box">
+          <strong>Rubric generation:</strong> Describe your assignment and ask Claude to generate a detailed rubric. Review and adjust. What used to take an hour takes ten minutes.<br/><br/>
+          <strong>Assignment variation:</strong> Use AI to generate multiple versions of the same assignment so identical AI outputs across students become immediately obvious.<br/><br/>
+          <strong>Discussion questions:</strong> Give AI your week's reading list and ask it to generate questions at multiple cognitive levels -- recall, analysis, synthesis, application.<br/><br/>
+          <strong>Feedback templates:</strong> Create a library of feedback templates for the most common issues in student writing. Build them once, customize with student-specific details.<br/><br/>
+          <strong>Syllabus and policy language:</strong> Draft or update your AI use policy, syllabus language, and course overview in minutes.
+        </div>
+        <div class="callout">Important: AI is a starting point, not a final product. Your expertise, your voice, and your judgment are what make the output useful. Review everything AI produces before using it. Your students are relying on your deep knowledge -- not the model's.</div>
+      </div>
+    </div>
+
+    <!-- ── PROMPT LIBRARY ── -->
+    <div class="card" id="prompts">
+      <div class="card-banner banner-teal">
+        <div class="banner-step">Part Six</div>
+        <div class="banner-icon">📋</div>
+        <div class="banner-text">
+          <div class="banner-title">The Prompt Library</div>
+          <div class="banner-sub">Click any prompt to copy -- paste directly into Claude or ChatGPT</div>
+        </div>
+        <div class="banner-number">06</div>
+      </div>
+      <div class="card-body">
+        <p>These prompts are designed for professors and higher ed leaders. The more specific you are about your subject, level, and objectives, the better the output. <strong>Claude</strong> (claude.ai) tends to be stronger on nuanced writing and structured frameworks. <strong>ChatGPT</strong> tends to be stronger on rapid brainstorming and variation generation.</p>
+
+        <div class="section-label" style="margin-top:1.5rem;">Assignment Design</div>
+        <div class="section-sub">Restructure assignments so AI becomes a learning tool, not a shortcut</div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Flip-the-Script Assignment</div>
+          <div class="prompt-text" id="p1">I want to redesign this assignment so that students use AI as a learning tool outside class and must demonstrate mastery inside class. Here is my original assignment: [paste prompt]. Please suggest how to restructure it using this framework: (1) an AI-assisted task students complete before class that requires genuine engagement with the material, (2) three in-class questions I can use to verify real understanding, and (3) a brief reflection prompt that asks students to identify one thing AI got wrong or incomplete.</div>
+          <button class="copy-btn" onclick="copyPrompt('p1', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Integrity-Proof Assessment</div>
+          <div class="prompt-text" id="p2">I teach [subject] at the graduate level. I want to create an assessment that would be very difficult to complete using AI alone without genuine domain knowledge. The learning objectives are: [list]. Please suggest three assessment formats and provide one complete example prompt for the strongest option.</div>
+          <button class="copy-btn" onclick="copyPrompt('p2', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">Grading and Feedback</div>
+        <div class="section-sub">Save hours -- let AI draft, you refine</div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Rubric Builder</div>
+          <div class="prompt-text" id="p3">I am assigning [type of assignment] in a [level] [subject] course. The key learning objectives are: [list]. Please build a detailed rubric with [number] categories. For each category include: the category name, what distinguished performance looks like at four levels (exemplary, proficient, developing, beginning), and the point value if the total is [X] points.</div>
+          <button class="copy-btn" onclick="copyPrompt('p3', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Oral Defense Question Generator</div>
+          <div class="prompt-text" id="p4">A student has submitted the following paper abstract: [paste abstract]. I want to ask them 5 questions in an oral defense that will reveal whether they genuinely understand their argument and sources. Please generate 5 questions that progress from recall to analysis to original synthesis. Include one question that asks them to identify a limitation or error in their own argument.</div>
+          <button class="copy-btn" onclick="copyPrompt('p4', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Constructive Feedback Templates</div>
+          <div class="prompt-text" id="p5">I frequently need to give feedback on the following issues in graduate student writing: [list 3 common issues, e.g. weak thesis statements, over-reliance on quotation, lack of original argument]. Please write three separate feedback paragraphs I can use as templates, each 3-4 sentences, that are constructive and specific without being discouraging.</div>
+          <button class="copy-btn" onclick="copyPrompt('p5', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">Classroom Culture and Student Support</div>
+        <div class="section-sub">Create conditions where AI becomes a tool, not a shortcut</div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Syllabus AI Policy Language</div>
+          <div class="prompt-text" id="p6">I need to update my syllabus to include a clear, fair, and specific policy on AI use. My course is [subject] at the [level] level. My position is that AI may be used for [specific purposes] but not for [specific purposes]. Please draft a 150-word policy statement that is clear, firm, and non-punitive in tone. Include one sentence about how I will verify understanding in class.</div>
+          <button class="copy-btn" onclick="copyPrompt('p6', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Private Student Referral Script</div>
+          <div class="prompt-text" id="p7">I want to privately mention a reading support resource to a student I believe may be struggling with foundational literacy skills. I do not want to embarrass them or make assumptions. Please help me write 3-4 sentences I could say in a brief private conversation that acknowledges their effort, mentions that many adults benefit from structured literacy support, and points them to readingforall.com without making it feel like an accusation or a formal referral.</div>
+          <button class="copy-btn" onclick="copyPrompt('p7', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">Save Time on Prep</div>
+        <div class="section-sub">Your deep knowledge plus AI speed</div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Discussion Question Generator</div>
+          <div class="prompt-text" id="p8">I am facilitating a seminar on [topic] and this week's readings are [list titles and authors]. Generate 8 discussion questions: 2 at the recall level, 2 at the analysis level, 2 at the synthesis level, and 2 that require students to apply the concepts to a real-world scenario in [your field]. Include a brief facilitator note for each question and flag which are most likely to generate productive disagreement.</div>
+          <button class="copy-btn" onclick="copyPrompt('p8', this)">📋 Copy Prompt</button>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-label">Assignment Variation Generator</div>
+          <div class="prompt-text" id="p9">Here is my original essay prompt: [paste prompt]. Please generate three variations of this prompt that assess the same learning objectives but require different angles of approach. Each variation should make it difficult to use the same AI-generated response for all three versions.</div>
+          <button class="copy-btn" onclick="copyPrompt('p9', this)">📋 Copy Prompt</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TOOLS ── -->
+    <div class="card" id="tools">
+      <div class="card-banner banner-pink">
+        <div class="banner-step">Part Seven</div>
+        <div class="banner-icon">🛠️</div>
+        <div class="banner-text">
+          <div class="banner-title">Recommended Tools</div>
+          <div class="banner-sub">A practitioner's curated list</div>
+        </div>
+        <div class="banner-number">07</div>
+      </div>
+      <div class="card-body">
+        <div class="callout">Some of these tools were built primarily for K-12 educators and transfer well to higher ed. Others are universal. You know your context best. Take what fits and leave what does not.</div>
+
+        <div class="section-label" style="margin-top:1.2rem;">Writing, Research and Thinking</div>
+        <div class="tools-grid">
+          <div class="tool-row header">
+            <div class="tool-cell">Tool</div>
+            <div class="tool-cell">Best For</div>
+            <div class="tool-cell">URL</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">Claude</div>
+            <div class="tool-cell">Nuanced writing, rubrics, feedback templates, structured frameworks, complex analysis</div>
+            <div class="tool-cell"><a href="https://claude.ai" target="_blank" class="tool-url">claude.ai</a></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">ChatGPT</div>
+            <div class="tool-cell">Rapid brainstorming, variation generation, quick drafts, broad ideation</div>
+            <div class="tool-cell"><a href="https://chat.openai.com" target="_blank" class="tool-url">chat.openai.com</a></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">Perplexity AI</div>
+            <div class="tool-cell">Research with cited sources -- reduces hallucination risk for academic use</div>
+            <div class="tool-cell"><a href="https://perplexity.ai" target="_blank" class="tool-url">perplexity.ai</a></div>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">Assignment Integrity</div>
+        <div class="tools-grid">
+          <div class="tool-row header">
+            <div class="tool-cell">Tool</div>
+            <div class="tool-cell">Best For</div>
+            <div class="tool-cell">URL</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">Turnitin</div>
+            <div class="tool-cell">AI detection built into existing plagiarism workflow -- many institutions already pay for it</div>
+            <div class="tool-cell"><a href="https://turnitin.com" target="_blank" class="tool-url">turnitin.com</a></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">GPTZero</div>
+            <div class="tool-cell">AI content detection -- free tier available, useful for individual cases</div>
+            <div class="tool-cell"><a href="https://gptzero.me" target="_blank" class="tool-url">gptzero.me</a></div>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:1rem;">
+          <strong>Important:</strong> No detection tool is 100% accurate. False positives occur. Use detection tools as a flag for further investigation -- not as sole evidence of academic dishonesty. The three mastery questions in Part Three remain the most reliable human-centered verification method.
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">Educator Productivity</div>
+        <div class="tools-grid">
+          <div class="tool-row header">
+            <div class="tool-cell">Tool</div>
+            <div class="tool-cell">Best For</div>
+            <div class="tool-cell">URL</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">MagicSchool AI</div>
+            <div class="tool-cell">Rubrics, lesson plans, differentiation -- built for educators, many tools transfer to any level</div>
+            <div class="tool-cell"><a href="https://magicschool.ai" target="_blank" class="tool-url">magicschool.ai</a></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">Otter.ai</div>
+            <div class="tool-cell">Transcribing lectures and meetings -- saves time on notes and accessibility</div>
+            <div class="tool-cell"><a href="https://otter.ai" target="_blank" class="tool-url">otter.ai</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LIVE DEMO ── -->
+    <div class="card" id="demo">
+      <div class="card-banner banner-green">
+        <div class="banner-step">Live Demo</div>
+        <div class="banner-icon">🎮</div>
+        <div class="banner-text">
+          <div class="banner-title">See It In Action</div>
+          <div class="banner-sub">This is what AI-powered structured literacy looks like</div>
+        </div>
+        <div class="banner-number">✦</div>
+      </div>
+      <div class="demo-intro">
+        <p>This is a real lesson from the Reading For All system -- the same tools I described in this playbook. Not a screenshot. Not a mockup. The actual interactive experience a struggling adult learner would access privately on their device.</p>
+        <p>Try it yourself. The Short U lesson includes a teaching video, an interactive practice game, a flipbook reader, and songs. It was designed for all ages -- the content is accessible, the methodology is rigorous, and the dignity is built in.</p>
+        <div class="note-box"><strong>For your students:</strong> If you quietly want to point a struggling reader here, the full Reading For All community is at <a href="https://readingforall.com" target="_blank" style="color:var(--teal);">readingforall.com</a>. No one needs to know. Everyone is on their device.</div>
+      </div>
+
+      <!-- Teaching Video -->
+      <div style="margin-top:1.5rem;">
+        <div class="card-banner banner-red" style="margin:0 1.5rem;border-radius:12px 12px 0 0;">
+          <div class="banner-step">Step 1</div>
+          <div class="banner-icon">🎬</div>
+          <div class="banner-text">
+            <div class="banner-title">Teaching Video</div>
+            <div class="banner-sub">Short U -- Lesson 1.5</div>
+          </div>
+          <div class="banner-number">01</div>
+        </div>
+        <div style="margin:0 1.5rem;">
+          <div class="video-wrapper" style="border-radius:0 0 12px 12px;overflow:hidden;">
+            <div class="embed-placeholder placeholder-red">
+              <div class="placeholder-emoji">🎬</div>
+              <div class="placeholder-text">Loading Teaching Video...</div>
+              <div class="placeholder-shimmer"></div>
+            </div>
+            <iframe src="https://www.youtube.com/embed/C-ZGW-Dj3Ys?rel=0"
+              title="Short U Teaching Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              onload="this.previousElementSibling.style.opacity='0'"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Book -->
+      <div style="margin-top:1.5rem;">
+        <div class="card-banner banner-blue" style="margin:0 1.5rem;border-radius:12px 12px 0 0;">
+          <div class="banner-step">Step 2</div>
+          <div class="banner-icon">📖</div>
+          <div class="banner-text">
+            <div class="banner-title">Interactive Book</div>
+            <div class="banner-sub">Short U Flipbook Reader</div>
+          </div>
+          <div class="banner-number">02</div>
+        </div>
+        <div style="margin:0 1.5rem;">
+          <div class="book-wrapper" style="border-radius:0 0 12px 12px;overflow:hidden;">
+            <div class="embed-placeholder placeholder-blue">
+              <div class="placeholder-emoji">📖</div>
+              <div class="placeholder-text">Loading Interactive Book...</div>
+              <div class="placeholder-shimmer"></div>
+            </div>
+            <iframe src="https://online.fliphtml5.com/ReadingForAll/chcz/"
+              title="Short U Interactive Book"
+              allowfullscreen
+              onload="this.previousElementSibling.style.opacity='0'"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game -->
+      <div style="margin-top:1.5rem;">
+        <div class="card-banner banner-green" style="margin:0 1.5rem;border-radius:12px 12px 0 0;">
+          <div class="banner-step">Step 3</div>
+          <div class="banner-icon">🎮</div>
+          <div class="banner-text">
+            <div class="banner-title">Practice Game</div>
+            <div class="banner-sub">Short U Interactive App</div>
+          </div>
+          <div class="banner-number">03</div>
+        </div>
+        <div style="margin:0 1.5rem;">
+          <div class="game-wrapper" style="border-radius:0 0 12px 12px;overflow:hidden;">
+            <div class="embed-placeholder placeholder-green">
+              <div class="placeholder-emoji">🎮</div>
+              <div class="placeholder-text">Loading Interactive Game...</div>
+              <div class="placeholder-shimmer"></div>
+            </div>
+            <iframe src="https://reading-app.pages.dev/l1-05-w6j1-short-u/"
+              title="Short U Practice Game"
+              allowfullscreen
+              onload="this.previousElementSibling.style.opacity='0'"></iframe>
+          </div>
+          <div style="padding:1rem 0;text-align:center;">
+            <a href="https://reading-app.pages.dev/l1-05-w6j1-short-u/" target="_blank"
+              style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;padding:0.8rem 2rem;border-radius:999px;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.25);">
+              🎮 Open Game in New Tab
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Song -->
+      <div style="margin:1.5rem 1.5rem 1.5rem;">
+        <div class="card-banner banner-violet" style="border-radius:12px 12px 0 0;">
+          <div class="banner-step">Step 4</div>
+          <div class="banner-icon">🎵</div>
+          <div class="banner-text">
+            <div class="banner-title">Short U Song</div>
+            <div class="banner-sub">Sing it to remember it</div>
+          </div>
+          <div class="banner-number">04</div>
+        </div>
+        <div class="spotify-wrapper" style="background:rgba(255,255,255,0.02);border-radius:0 0 12px 12px;">
+          <iframe
+            src="https://open.spotify.com/embed/track/3io3452YSBpZsmlcgmP46G?utm_source=generator&theme=0"
+            width="100%" height="152"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+          <p class="spotify-note">Also available on Apple Music and all streaming platforms</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── NEXT STEPS ── -->
+    <div class="card" id="nextsteps">
+      <div class="card-banner banner-navy">
+        <div class="banner-step" style="color:rgba(245,200,66,0.8);">What's Next</div>
+        <div class="banner-icon">🚀</div>
+        <div class="banner-text">
+          <div class="banner-title" style="color:var(--gold);">Three Ways to Keep Going</div>
+          <div class="banner-sub">Choose your next step</div>
+        </div>
+        <div class="banner-number" style="color:rgba(245,200,66,0.08);">✦</div>
+      </div>
+      <div class="card-body">
+        <div class="steps-grid">
+          <div class="step-row">
+            <div class="step-num" style="background:linear-gradient(135deg,#f5c842,#e8a820);">1</div>
+            <div class="step-content">
+              <div class="step-title">Try one flip this week.</div>
+              <div class="step-desc">Take one existing assignment and restructure it using the framework in Part Two. Assign AI outside class. Ask one of the three questions inside class. See what you learn.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);">2</div>
+            <div class="step-content">
+              <div class="step-title">Save five hours this week.</div>
+              <div class="step-desc">Use one prompt from the library above to generate a rubric, a discussion question set, or a feedback template. Time yourself. The ROI will be immediately obvious.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);">3</div>
+            <div class="step-content">
+              <div class="step-title">Go deeper.</div>
+              <div class="step-desc">If you want to work through this framework for your specific courses, students, and institutional context -- book a discovery call. We look at exactly what your classroom needs and build a plan together.</div>
+              <div style="margin-top:0.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="https://lindacolasanti.com" target="_blank" style="color:var(--teal);font-weight:800;font-size:0.88rem;">lindacolasanti.com</a>
+                <a href="https://readingforall.com" target="_blank" style="color:var(--gold);font-weight:800;font-size:0.88rem;">readingforall.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-quote">
+    <p class="line1">"Reading didn't break in college."</p>
+    <p class="line2">"It broke the first time a child decided that struggling meant something permanent about who they were."</p>
+    <p class="line3">"You have more power than you know to change that story."</p>
+    <p class="line4">"Even now. Even at this stage. Even with AI in the room."</p>
+  </div>
+
+  <div class="rainbow-bar"></div>
+
+  <footer>
+    <img class="footer-avatar" src="https://assets.readingforall.com/Images/Suzy.png" alt="Reading For All" />
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/groups/1451067043127578" target="_blank" class="social-btn facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Community
+      </a>
+      <a href="https://www.instagram.com/linda_colasanti/" target="_blank" class="social-btn instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.youtube.com/@ReadingForAllPeople" target="_blank" class="social-btn youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        YouTube
+      </a>
+      <a href="https://www.linkedin.com/in/linda-colasanti-bb506a99" target="_blank" class="social-btn linkedin">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="footer-divider"></div>
+    <p>© 2026 <span>Reading For All™</span> &middot; ReadingForAll.com &middot; LindaColasanti.com</p>
+    <p style="margin-top:0.4rem;">
+      <span style="color:#e84040;font-weight:900;">B</span><span style="color:#e84040;font-weight:900;">u</span><span style="color:#f97316;font-weight:900;">i</span><span style="color:#f97316;font-weight:900;">l</span><span style="color:#f5c842;font-weight:900;">t</span><span style="color:rgba(255,255,255,0.4);font-weight:900;"> </span><span style="color:#f5c842;font-weight:900;">w</span><span style="color:#22c55e;font-weight:900;">i</span><span style="color:#22c55e;font-weight:900;">t</span><span style="color:#3b82f6;font-weight:900;">h</span><span style="color:rgba(255,255,255,0.4);font-weight:900;"> </span><span style="color:#3b82f6;font-weight:900;">l</span><span style="color:#6366f1;font-weight:900;">o</span><span style="color:#6366f1;font-weight:900;">v</span><span style="color:#a855f7;font-weight:900;">e</span><span style="color:rgba(255,255,255,0.4);font-weight:900;"> </span><span style="color:#a855f7;font-weight:900;">f</span><span style="color:#e84040;font-weight:900;">o</span><span style="color:#f97316;font-weight:900;">r</span><span style="color:rgba(255,255,255,0.4);font-weight:900;"> </span><span style="color:#f5c842;font-weight:900;">e</span><span style="color:#22c55e;font-weight:900;">v</span><span style="color:#3b82f6;font-weight:900;">e</span><span style="color:#6366f1;font-weight:900;">r</span><span style="color:#a855f7;font-weight:900;">y</span><span style="color:rgba(255,255,255,0.4);font-weight:900;"> </span><span style="color:#e84040;font-weight:900;">r</span><span style="color:#f97316;font-weight:900;">e</span><span style="color:#f5c842;font-weight:900;">a</span><span style="color:#22c55e;font-weight:900;">d</span><span style="color:#3b82f6;font-weight:900;">e</span><span style="color:#6366f1;font-weight:900;">r</span> 🌈
+    </p>
+  </footer>
+
+  <script>
+    function copyPrompt(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 Copy Prompt';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 Copy Prompt';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
