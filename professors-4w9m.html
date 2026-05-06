@@ -667,6 +667,60 @@
       line-height: 1.6;
     }
 
+    /* ── FRAMEWORK STEPS ── */
+    .framework-grid {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .framework-step {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .framework-step:hover {
+      border-color: rgba(59,130,246,0.35);
+      background: rgba(59,130,246,0.05);
+    }
+
+    .framework-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a56db, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+    }
+
+    .framework-step-content { flex: 1; }
+
+    .framework-step-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .framework-step-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
     /* ── EMBED WRAPPERS ── */
     .embed-placeholder {
       position: absolute;
@@ -915,7 +969,7 @@
         </div>
       </div>
       <p class="hero-description">
-        Built from 15+ years working with students that traditional classroom instruction didn't reach. This is not theory. This is a field guide -- with prompts you can use today, questions that reveal real mastery, and a live demo of what AI-powered structured learning actually looks like.
+        Built from 15+ years working with students that traditional classroom instruction didn't reach. This is not theory. This is a field guide, with prompts you can use today, questions that reveal real mastery, and a live demo of what AI-powered structured learning actually looks like.
       </p>
       <div class="hero-badges">
         <span class="badge" style="background:linear-gradient(135deg,#f5c842,#e8a820);color:#0d1b3e;">⭐ ILA Summit Resource</span>
@@ -935,7 +989,7 @@
   <div class="learn-section">
     <div class="learn-inner">
       <div class="learn-item"><div class="learn-dot" style="background:var(--gold)"></div>Understand the real problem underneath AI misuse</div>
-      <div class="learn-item"><div class="learn-dot" style="background:var(--red)"></div>Learn the Flip framework for your classroom</div>
+      <div class="learn-item"><div class="learn-dot" style="background:var(--red)"></div>Learn the six-step practitioner framework</div>
       <div class="learn-item"><div class="learn-dot" style="background:var(--green)"></div>Get 3 questions that reveal real mastery instantly</div>
       <div class="learn-item"><div class="learn-dot" style="background:var(--blue)"></div>Copy ready-to-use prompts for grading and prep</div>
       <div class="learn-item"><div class="learn-dot" style="background:var(--teal)"></div>See AI-powered structured learning live</div>
@@ -967,11 +1021,11 @@
         <div class="banner-number" style="color:rgba(245,200,66,0.08);">✦</div>
       </div>
       <div class="card-body">
-        <p>This resource was built from 15+ years as a Dyslexia Specialist and Orton-Gillingham practitioner -- working with students that traditional classroom instruction did not reach. I am not a classroom teacher. I am the person educators call when their students are still struggling. That perspective is exactly why this playbook exists.</p>
-        <p>I am also a certified AI consultant and implementation specialist. I build AI-powered learning tools and use AI every single day in my practice. And I am telling you -- from the inside -- that <strong>AI alone will never close the learning gap</strong>. Because the gap is never just about skills. Underneath every skill gap is a belief gap.</p>
+        <p>This resource was built from 15+ years as a Dyslexia Specialist and Orton-Gillingham practitioner, working with students that traditional classroom instruction did not reach. I am not a classroom teacher. I am the person educators call when their students are still struggling. That perspective is exactly why this playbook exists.</p>
+        <p>I am also a certified AI consultant and implementation specialist. I build AI-powered learning tools and use AI every single day in my practice. And I am telling you, from the inside, that <strong>AI alone will never close the learning gap</strong>. Because the gap is never just about skills. Underneath every skill gap is a belief gap.</p>
         <div class="callout">This is not a research document. It is a practitioner's framework built from real-world work with struggling learners of all ages. Some tools here will fit your context immediately. Others may need adapting. Take what serves your students and leave the rest.</div>
-        <p>I hold certifications across three pillars: dyslexia and reading intervention, master-level NLP executive coaching, and AI consulting and implementation. I was one of five people who architected North Carolina House Bill 149, signed into law July 20, 2017 -- the first dyslexia legislation in the state of North Carolina.</p>
-        <p style="font-style:italic;color:rgba(255,255,255,0.55);">I don't sell AI hype. I build with it. -- Linda Colasanti</p>
+        <p>I hold certifications across three pillars: dyslexia and reading intervention, master-level NLP executive coaching, and AI consulting and implementation. I was one of the leaders who architected and championed North Carolina House Bill 149 into law, signed July 20, 2017. It was the first dyslexia legislation in the state of North Carolina.</p>
+        <p style="font-style:italic;color:rgba(255,255,255,0.55);">I don't sell AI hype. I build with it. — Linda Colasanti</p>
       </div>
     </div>
 
@@ -988,11 +1042,12 @@
       </div>
       <div class="card-body">
         <p>Every higher education leader is watching the same scene play out. A student who seemed engaged in class submits work that is clearly not their own. A brilliant mind sits in the back of the room, hood up, phone out, completely disengaged.</p>
-        <div class="callout">AI did not create the literacy gap. It revealed it -- and gave students a faster way to hide it.</div>
-        <p>The student who uses ChatGPT to write their paper did not develop that habit in your classroom. They developed it somewhere around second or third grade, when reading got hard and nobody had the right answer. By the time they arrived at your institution they had spent a decade perfecting the art of looking like they don't care -- because not caring hurts less than trying and failing.</p>
+        <p>When I started building with AI there were 7,000 tools. As of May 2026 there are over 47,000 publicly listed tools. That number does not include enterprise systems, private deployments, or the tools that practitioners like me build ourselves. Nobody knows where to start. New ones launch every single day.</p>
+        <div class="callout">AI did not create the literacy gap. It revealed it. It gave students a faster way to hide it.</div>
+        <p>The student who uses ChatGPT to write their paper did not develop that habit in your classroom. They developed it somewhere around second or third grade, when reading got hard and nobody had the right answer. By the time they arrived at your institution they had spent a decade perfecting the art of looking like they don't care, because not caring hurts less than trying and failing.</p>
         <p>That is not an engagement problem. That is a belief and identity wound that has been following that student for fifteen years. <strong>And it just landed in your classroom.</strong></p>
-        <p>Underneath every skill gap is a belief gap. A student who believes they are not capable will not become capable -- no matter how sophisticated your intervention or how powerful your technology. Fixing the skill without addressing the belief is like patching a roof without fixing the foundation.</p>
-        <p>Before you write a student off -- ask yourself: Have I considered that this student might be embarrassed? That reading aloud in class might be their worst nightmare? That their silence is protection, not defiance?</p>
+        <p>Underneath every skill gap is a belief gap. A student who believes they are not capable will not become capable, no matter how sophisticated your intervention or how powerful your technology. Fixing the skill without addressing the belief is like patching a roof without fixing the foundation.</p>
+        <p>Before you write a student off. Ask yourself:: Have I considered that this student might be embarrassed? That reading aloud in class might be their worst nightmare? That their silence is protection, not defiance?</p>
       </div>
     </div>
 
@@ -1002,23 +1057,73 @@
         <div class="banner-step">Part Two</div>
         <div class="banner-icon">🔄</div>
         <div class="banner-text">
-          <div class="banner-title">The Flip</div>
-          <div class="banner-sub">Assign AI outside. Prove mastery inside.</div>
+          <div class="banner-title">The Framework</div>
+          <div class="banner-sub">Six steps from friction point to mastery</div>
         </div>
         <div class="banner-number">02</div>
       </div>
       <div class="card-body">
         <p>The most common institutional response to AI in the classroom is detection and punishment. This approach has one fundamental problem: it positions you in a permanent arms race with technology that will always be one step ahead.</p>
-        <div class="callout">Stop fighting AI. Start using it strategically. Flip the script -- and take your classroom back.</div>
+        <div class="callout">Stop fighting AI. Start using it strategically. This six-step framework gives you a repeatable protocol for any student, any subject, any level.</div>
 
-        <p><strong>Step 1: Assign AI as the learning tool outside class.</strong> Rather than banning AI from homework, assign it intentionally. Give students a specific AI-assisted task designed to help them learn the material -- not just produce an output.</p>
-        <p>Examples that work: Have students use Claude or ChatGPT to generate a first draft of an argument, then ask them to identify three things the AI got wrong. Ask them to prompt AI to argue the opposite side of their thesis and then write a rebuttal. Have them use AI to summarize a reading -- then find the errors.</p>
-        <p>That last one is particularly powerful. AI makes mistakes -- confidently. A student who actually read the material will catch them instantly. A student who relied entirely on AI will not. <strong>You have just created a natural integrity check without accusation.</strong></p>
+        <div class="framework-grid">
+          <div class="framework-step">
+            <div class="framework-step-num">1</div>
+            <div class="framework-step-content">
+              <div class="framework-step-title">Identify the friction point</div>
+              <div class="framework-step-desc">Locate the exact moment a student disengages or reaches for AI. Is it the reading load? The writing demand? The test format? You cannot address what you have not named.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="framework-step-num">2</div>
+            <div class="framework-step-content">
+              <div class="framework-step-title">Find the identity wound</div>
+              <div class="framework-step-desc">Underneath every skill gap is a belief gap. Ask: what does this student believe about themselves as a learner? Avoidance is almost always protection. Silence is almost always shame.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="framework-step-num">3</div>
+            <div class="framework-step-content">
+              <div class="framework-step-title">Strategize the scaffolding</div>
+              <div class="framework-step-desc">Design the bridge between where the student is and where mastery lives. This is not remediation. It is architecture. What does the student need in order to engage without shame?</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="framework-step-num">4</div>
+            <div class="framework-step-content">
+              <div class="framework-step-title">Build the protocol</div>
+              <div class="framework-step-desc">Create the specific sequence: what happens outside class, what happens inside class, and how mastery is measured. Vague intentions produce vague results. The protocol is your blueprint.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="framework-step-num">5</div>
+            <div class="framework-step-content">
+              <div class="framework-step-title">Deploy and model</div>
+              <div class="framework-step-desc">Put the protocol into practice and model AI use yourself. When professors use AI transparently in class, they shift the culture from cheating to tool use. You are the most powerful variable in the room.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="framework-step-num">6</div>
+            <div class="framework-step-content">
+              <div class="framework-step-title">Monitor for mastery</div>
+              <div class="framework-step-desc">Mastery is not a score. It is the ability to defend, apply, and extend knowledge in real time. Keep returning to the question: can this student perform without the tool in front of you?</div>
+            </div>
+          </div>
+        </div>
 
-        <p><strong>Step 2: Prove mastery inside the classroom.</strong> Whatever the AI-assisted assignment produces outside class, the student must be able to defend, discuss, and demonstrate inside class. In real time. In front of you. Where nothing can be faked.</p>
+        <div style="margin-top:2rem;">
+          <div class="section-label">The Flip: Practical Application of Steps 5 and 6</div>
+          <div class="section-sub">Assign AI outside. Prove mastery inside.</div>
 
-        <div class="note-box">
-          <strong>Why this works:</strong> Students who used AI to actually learn the material will perform well. Students who used AI to avoid learning will be exposed naturally -- without accusation, without AI detection software, without confrontation. Your domain expertise becomes irreplaceable again. No AI can replicate what you know about your field at the depth you know it.
+          <p><strong>Step 5 in practice: Assign AI as the learning tool outside class.</strong> Rather than banning AI from homework, assign it intentionally. Give students a specific AI-assisted task designed to help them learn the material, not just produce an output.</p>
+          <p>Examples that work: Have students use Claude or ChatGPT to generate a first draft of an argument, then ask them to identify three things the AI got wrong. Ask them to prompt AI to argue the opposite side of their thesis and then write a rebuttal. Have them use AI to summarize a reading, then find the errors.</p>
+          <p>That last one is particularly powerful. AI makes mistakes, confidently. A student who actually read the material will catch them instantly. A student who relied entirely on AI will not. <strong>You have just created a natural integrity check without accusation.</strong></p>
+
+          <p><strong>Step 6 in practice: Prove mastery inside the classroom.</strong> Whatever the AI-assisted assignment produces outside class, the student must be able to defend, discuss, and demonstrate inside class. In real time. In front of you. Where nothing can be faked.</p>
+
+          <div class="note-box">
+            <strong>Why this works:</strong> Students who used AI to actually learn the material will perform well. Students who used AI to avoid learning will be exposed naturally, without accusation, without AI detection software, without confrontation. Your domain expertise becomes irreplaceable again. No AI can replicate what you know about your field at the depth you know it.
+          </div>
         </div>
       </div>
     </div>
@@ -1035,14 +1140,14 @@
         <div class="banner-number">03</div>
       </div>
       <div class="card-body">
-        <p>You do not need a lengthy oral exam. You need three well-placed questions that make it immediately clear whether a student understands the material -- or just knows how to prompt a language model. These work across every subject and every level.</p>
+        <p>You do not need a lengthy oral exam. You need three well-placed questions that make it immediately clear whether a student understands the material, or just knows how to prompt a language model. These work across every subject and every level.</p>
         <p style="font-style:italic;color:rgba(255,255,255,0.55);">Delivery note: Ask these as genuine curiosity, not interrogation. The student who is unprepared will feel it immediately. The student who is prepared will feel respected. Tone is everything.</p>
 
         <div class="question-list">
           <div class="question-item">
             <div class="question-num">1</div>
             <div>
-              <div class="question-text">"Walk me through why you made the argument you did -- not what the argument is, but why that one."</div>
+              <div class="question-text">"Walk me through why you made the argument you did, not what the argument is, but why that one."</div>
               <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">AI can produce an argument. It cannot explain the reasoning process behind choosing that argument. Listen for: evidence of independent thought, awareness of alternatives rejected.</p>
             </div>
           </div>
@@ -1050,14 +1155,14 @@
             <div class="question-num">2</div>
             <div>
               <div class="question-text">"AI makes mistakes about this topic. What did you notice that was wrong or incomplete in what it produced?"</div>
-              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">This assumes AI use -- removing shame and accusation entirely. A student who read the source material will have no trouble. Listen for: specific, accurate identification of a genuine gap or error.</p>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">This assumes AI use, removing shame and accusation entirely. A student who read the source material will have no trouble. Listen for: specific, accurate identification of a genuine gap or error.</p>
             </div>
           </div>
           <div class="question-item">
             <div class="question-num">3</div>
             <div>
               <div class="question-text">"If you had to apply this concept to [a specific real-world scenario from your field], what would that actually look like?"</div>
-              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">Fill in the scenario from your own deep knowledge -- something a generalist AI handles superficially. This is where your expertise becomes the irreplaceable measuring stick. Listen for: specificity, nuance, field-awareness.</p>
+              <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;font-weight:600;">Fill in the scenario from your own deep knowledge, something a generalist AI handles superficially. This is where your expertise becomes the irreplaceable measuring stick. Listen for: specificity, nuance, field-awareness.</p>
             </div>
           </div>
         </div>
@@ -1077,7 +1182,7 @@
         <div class="banner-number">04</div>
       </div>
       <div class="card-body">
-        <p>Not every student who reaches for AI is lazy. Some are hiding something that has nothing to do with laziness -- and everything to do with shame. After 15+ years working with the students classrooms could not reach, I can tell you that the most common reason a capable person stops engaging is not lack of effort. It is the belief that effort will only confirm what they already suspect about themselves.</p>
+        <p>Not every student who reaches for AI is lazy. Some are hiding something that has nothing to do with laziness, and everything to do with shame. After 15+ years working with the students classrooms could not reach, I can tell you that the most common reason a capable person stops engaging is not lack of effort. It is the belief that effort will only confirm what they already suspect about themselves.</p>
 
         <p><strong>Signs to watch for:</strong></p>
         <div class="question-list">
@@ -1088,7 +1193,7 @@
         </div>
 
         <p style="margin-top:1rem;"><strong>What you can do:</strong> Create a dignified private pathway. A quiet conversation. A discreet referral. A resource they can access on their own terms without anyone knowing they used it.</p>
-        <div class="callout">Reading For All is a private, device-based structured literacy community where adult learners can access foundational reading instruction without embarrassment. No one needs to know. Everyone is on their device. If you have a student you suspect is struggling at a foundational level -- there is somewhere dignified to send them now. readingforall.com</div>
+        <div class="callout">Reading For All is a private, device-based structured literacy community where adult learners can access foundational reading instruction without embarrassment. No one needs to know. Everyone is on their device. If you have a student you suspect is struggling at a foundational level. There is somewhere dignified to send them now. readingforall.com</div>
       </div>
     </div>
 
@@ -1104,16 +1209,16 @@
         <div class="banner-number">05</div>
       </div>
       <div class="card-body">
-        <p>Most conversations about AI in higher education focus on what students are doing with it. Almost none focus on what professors could be doing with it. You have deep domain expertise that took decades to build. AI should be amplifying that expertise -- not threatening it.</p>
+        <p>Most conversations about AI in higher education focus on what students are doing with it. Almost none focus on what professors could be doing with it. You have deep domain expertise that took decades to build. AI should be amplifying that expertise, not threatening it.</p>
         <p>Here is where your time goes and how AI reclaims it:</p>
         <div class="note-box">
           <strong>Rubric generation:</strong> Describe your assignment and ask Claude to generate a detailed rubric. Review and adjust. What used to take an hour takes ten minutes.<br/><br/>
           <strong>Assignment variation:</strong> Use AI to generate multiple versions of the same assignment so identical AI outputs across students become immediately obvious.<br/><br/>
-          <strong>Discussion questions:</strong> Give AI your week's reading list and ask it to generate questions at multiple cognitive levels -- recall, analysis, synthesis, application.<br/><br/>
+          <strong>Discussion questions:</strong> Give AI your week's reading list and ask it to generate questions at multiple cognitive levels: recall, analysis, synthesis, application.<br/><br/>
           <strong>Feedback templates:</strong> Create a library of feedback templates for the most common issues in student writing. Build them once, customize with student-specific details.<br/><br/>
           <strong>Syllabus and policy language:</strong> Draft or update your AI use policy, syllabus language, and course overview in minutes.
         </div>
-        <div class="callout">Important: AI is a starting point, not a final product. Your expertise, your voice, and your judgment are what make the output useful. Review everything AI produces before using it. Your students are relying on your deep knowledge -- not the model's.</div>
+        <div class="callout">Important: AI is a starting point, not a final product. Your expertise, your voice, and your judgment are what make the output useful. Review everything AI produces before using it. Your students are relying on your deep knowledge, not the model's.</div>
       </div>
     </div>
 
@@ -1124,7 +1229,7 @@
         <div class="banner-icon">📋</div>
         <div class="banner-text">
           <div class="banner-title">The Prompt Library</div>
-          <div class="banner-sub">Click any prompt to copy -- paste directly into Claude or ChatGPT</div>
+          <div class="banner-sub">Click any prompt to copy and paste directly into Claude or ChatGPT</div>
         </div>
         <div class="banner-number">06</div>
       </div>
@@ -1147,7 +1252,7 @@
         </div>
 
         <div class="section-label" style="margin-top:2rem;">Grading and Feedback</div>
-        <div class="section-sub">Save hours -- let AI draft, you refine</div>
+        <div class="section-sub">Save hours. Let AI draft, you refine.</div>
 
         <div class="prompt-card">
           <div class="prompt-label">Rubric Builder</div>
@@ -1214,6 +1319,7 @@
         <div class="callout">Some of these tools were built primarily for K-12 educators and transfer well to higher ed. Others are universal. You know your context best. Take what fits and leave what does not.</div>
 
         <div class="section-label" style="margin-top:1.2rem;">Writing, Research and Thinking</div>
+        <div class="section-sub">The core thinking tools for professors and higher ed leaders</div>
         <div class="tools-grid">
           <div class="tool-row header">
             <div class="tool-cell">Tool</div>
@@ -1231,13 +1337,24 @@
             <div class="tool-cell"><a href="https://chat.openai.com" target="_blank" class="tool-url">chat.openai.com</a></div>
           </div>
           <div class="tool-row">
+            <div class="tool-cell tool-name">Gemini</div>
+            <div class="tool-cell">Deep integration with Google Workspace, strong multimodal tasks; NotebookLM (by Google) is particularly powerful for professors working with source documents and generating audio overviews from uploaded readings</div>
+            <div class="tool-cell"><a href="https://gemini.google.com" target="_blank" class="tool-url">gemini.google.com</a></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">NotebookLM</div>
+            <div class="tool-cell">Source-grounded research and study guide generation from your own uploaded documents. Significantly lower hallucination risk because it works only from sources you provide. Strong traction in higher ed.</div>
+            <div class="tool-cell"><a href="https://notebooklm.google.com" target="_blank" class="tool-url">notebooklm.google.com</a></div>
+          </div>
+          <div class="tool-row">
             <div class="tool-cell tool-name">Perplexity AI</div>
-            <div class="tool-cell">Research with cited sources -- reduces hallucination risk for academic use</div>
+            <div class="tool-cell">Research with cited sources in real time. Reduces hallucination risk for academic use.</div>
             <div class="tool-cell"><a href="https://perplexity.ai" target="_blank" class="tool-url">perplexity.ai</a></div>
           </div>
         </div>
 
         <div class="section-label" style="margin-top:2rem;">Assignment Integrity</div>
+        <div class="section-sub">Tools to verify mastery, not just detect AI</div>
         <div class="tools-grid">
           <div class="tool-row header">
             <div class="tool-cell">Tool</div>
@@ -1246,20 +1363,21 @@
           </div>
           <div class="tool-row">
             <div class="tool-cell tool-name">Turnitin</div>
-            <div class="tool-cell">AI detection built into existing plagiarism workflow -- many institutions already pay for it</div>
+            <div class="tool-cell">AI detection built into existing plagiarism workflow. Many institutions already pay for it.</div>
             <div class="tool-cell"><a href="https://turnitin.com" target="_blank" class="tool-url">turnitin.com</a></div>
           </div>
           <div class="tool-row">
             <div class="tool-cell tool-name">GPTZero</div>
-            <div class="tool-cell">AI content detection -- free tier available, useful for individual cases</div>
+            <div class="tool-cell">AI content detection. Free tier available, useful for individual cases.</div>
             <div class="tool-cell"><a href="https://gptzero.me" target="_blank" class="tool-url">gptzero.me</a></div>
           </div>
         </div>
         <div class="note-box" style="margin-top:1rem;">
-          <strong>Important:</strong> No detection tool is 100% accurate. False positives occur. Use detection tools as a flag for further investigation -- not as sole evidence of academic dishonesty. The three mastery questions in Part Three remain the most reliable human-centered verification method.
+          <strong>Important:</strong> No detection tool is 100% accurate. False positives occur. Use detection tools as a flag for further investigation, not as sole evidence of academic dishonesty. The three mastery questions in Part Three remain the most reliable human-centered verification method.
         </div>
 
-        <div class="section-label" style="margin-top:2rem;">Educator Productivity</div>
+        <div class="section-label" style="margin-top:2rem;">Presentation and Design</div>
+        <div class="section-sub">Create polished course materials and presentations without a designer</div>
         <div class="tools-grid">
           <div class="tool-row header">
             <div class="tool-cell">Tool</div>
@@ -1267,16 +1385,57 @@
             <div class="tool-cell">URL</div>
           </div>
           <div class="tool-row">
+            <div class="tool-cell tool-name">Gamma</div>
+            <div class="tool-cell">AI-generated slide decks and presentations from a prompt or outline. Describe your lecture topic and get a designed, structured deck in minutes. Strong for professors who need visual materials fast without design skills.</div>
+            <div class="tool-cell"><a href="https://gamma.app" target="_blank" class="tool-url">gamma.app</a></div>
+          </div>
+          <div class="tool-row">
             <div class="tool-cell tool-name">MagicSchool AI</div>
-            <div class="tool-cell">Rubrics, lesson plans, differentiation -- built for educators, many tools transfer to any level</div>
+            <div class="tool-cell">Rubrics, lesson plans, differentiation tools built for educators. Many features transfer directly to higher ed course design.</div>
             <div class="tool-cell"><a href="https://magicschool.ai" target="_blank" class="tool-url">magicschool.ai</a></div>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">Avatar and Video Creation</div>
+        <div class="section-sub">Record once, deploy everywhere. Build assignments that cannot be faked.</div>
+        <div class="tools-grid">
+          <div class="tool-row header">
+            <div class="tool-cell">Tool</div>
+            <div class="tool-cell">Best For</div>
+            <div class="tool-cell">URL</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">HeyGen</div>
+            <div class="tool-cell">Create a cloned avatar that delivers your lectures, module introductions, or feedback videos without you re-recording. Powerful for assignments: have students script a "teach it back" video using an avatar. The script is the assessment. A student who did not understand the material cannot write a coherent teaching script.</div>
+            <div class="tool-cell"><a href="https://heygen.com" target="_blank" class="tool-url">heygen.com</a></div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">CapCut</div>
+            <div class="tool-cell">Fast, no-learning-curve video editing for short instructional clips. If you want to create a two-minute explainer or record a quick concept walkthrough, CapCut gets it done without professional editing skills.</div>
+            <div class="tool-cell"><a href="https://capcut.com" target="_blank" class="tool-url">capcut.com</a></div>
           </div>
           <div class="tool-row">
             <div class="tool-cell tool-name">Otter.ai</div>
-            <div class="tool-cell">Transcribing lectures and meetings -- saves time on notes and accessibility</div>
+            <div class="tool-cell">Transcribing lectures and meetings automatically. Saves time on notes and improves accessibility for students who need written records.</div>
             <div class="tool-cell"><a href="https://otter.ai" target="_blank" class="tool-url">otter.ai</a></div>
           </div>
+          <div class="tool-row">
+            <div class="tool-cell tool-name">Whisper</div>
+            <div class="tool-cell">OpenAI's open-source speech recognition model. Highly accurate transcription across accents and audio quality. Accessible via multiple third-party platforms and apps built on top of it. A practitioner's tool for those who want more control than a subscription service provides.</div>
+            <div class="tool-cell"><a href="https://openai.com/research/whisper" target="_blank" class="tool-url">openai.com/research/whisper</a></div>
+          </div>
         </div>
+
+        <div class="note-box" style="margin-top:2rem;border-color:rgba(245,200,66,0.3);background:rgba(245,200,66,0.06);">
+          <strong style="color:var(--gold);">What is coming next: Agentic AI</strong><br/><br/>
+          The tools above are powerful on their own. But the next wave is already here. Agentic AI systems do not just answer questions or generate content. They take sequences of actions on your behalf, autonomously, across your entire workflow. Imagine an AI that monitors your LMS for patterns in student engagement, drafts personalized outreach, and flags at-risk students before you would have noticed. That is one example. The applications in higher education are significant and largely untapped.<br/><br/>
+          I am already building in this space and working with institutions on implementation. If you want to explore what this could look like in your specific context, or if you have any question at all about anything on this page, my door is open. I read every email.<br/><br/>
+          <a href="mailto:linda@lindacolasanti.com?subject=Let%27s%20Connect"
+            style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#b45309,#f5c842);color:#0d1b3e;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.88rem;padding:0.7rem 1.6rem;border-radius:999px;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.25);margin-top:0.4rem;">
+            ✉️ Start a Conversation
+          </a>
+        </div>
+
       </div>
     </div>
 
@@ -1292,8 +1451,8 @@
         <div class="banner-number">✦</div>
       </div>
       <div class="demo-intro">
-        <p>This is a real lesson from the Reading For All system -- the same tools I described in this playbook. Not a screenshot. Not a mockup. The actual interactive experience a struggling adult learner would access privately on their device.</p>
-        <p>Try it yourself. The Short U lesson includes a teaching video, an interactive practice game, a flipbook reader, and songs. It was designed for all ages -- the content is accessible, the methodology is rigorous, and the dignity is built in.</p>
+        <p>This is a real lesson from the Reading For All system, the same tools I described in this playbook. Not a screenshot. Not a mockup. The actual interactive experience a struggling adult learner would access privately on their device.</p>
+        <p>This is the FLOSS Rule lesson, a spelling rule that unlocks over 200 words. It is a more sophisticated skill level appropriate for an adult learner: a phonics principle governing final consonant doubling that most college students were never explicitly taught, yet use every day. The lesson includes a teaching video, an interactive practice game, and songs across multiple genres.</p>
         <div class="note-box"><strong>For your students:</strong> If you quietly want to point a struggling reader here, the full Reading For All community is at <a href="https://readingforall.com" target="_blank" style="color:var(--teal);">readingforall.com</a>. No one needs to know. Everyone is on their device.</div>
       </div>
 
@@ -1304,7 +1463,7 @@
           <div class="banner-icon">🎬</div>
           <div class="banner-text">
             <div class="banner-title">Teaching Video</div>
-            <div class="banner-sub">Short U -- Lesson 1.5</div>
+            <div class="banner-sub">The FLOSS Rule, Lesson 3.1</div>
           </div>
           <div class="banner-number">01</div>
         </div>
@@ -1315,8 +1474,8 @@
               <div class="placeholder-text">Loading Teaching Video...</div>
               <div class="placeholder-shimmer"></div>
             </div>
-            <iframe src="https://www.youtube.com/embed/C-ZGW-Dj3Ys?rel=0"
-              title="Short U Teaching Video"
+            <iframe src="https://www.youtube.com/embed/C8KksUiDKvc?rel=0"
+              title="FLOSS Rule Teaching Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               onload="this.previousElementSibling.style.opacity='0'"></iframe>
@@ -1324,42 +1483,16 @@
         </div>
       </div>
 
-      <!-- Interactive Book -->
-      <div style="margin-top:1.5rem;">
-        <div class="card-banner banner-blue" style="margin:0 1.5rem;border-radius:12px 12px 0 0;">
-          <div class="banner-step">Step 2</div>
-          <div class="banner-icon">📖</div>
-          <div class="banner-text">
-            <div class="banner-title">Interactive Book</div>
-            <div class="banner-sub">Short U Flipbook Reader</div>
-          </div>
-          <div class="banner-number">02</div>
-        </div>
-        <div style="margin:0 1.5rem;">
-          <div class="book-wrapper" style="border-radius:0 0 12px 12px;overflow:hidden;">
-            <div class="embed-placeholder placeholder-blue">
-              <div class="placeholder-emoji">📖</div>
-              <div class="placeholder-text">Loading Interactive Book...</div>
-              <div class="placeholder-shimmer"></div>
-            </div>
-            <iframe src="https://online.fliphtml5.com/ReadingForAll/chcz/"
-              title="Short U Interactive Book"
-              allowfullscreen
-              onload="this.previousElementSibling.style.opacity='0'"></iframe>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game -->
+      <!-- Practice Game -->
       <div style="margin-top:1.5rem;">
         <div class="card-banner banner-green" style="margin:0 1.5rem;border-radius:12px 12px 0 0;">
-          <div class="banner-step">Step 3</div>
+          <div class="banner-step">Step 2</div>
           <div class="banner-icon">🎮</div>
           <div class="banner-text">
             <div class="banner-title">Practice Game</div>
-            <div class="banner-sub">Short U Interactive App</div>
+            <div class="banner-sub">FLOSS Rule Interactive App</div>
           </div>
-          <div class="banner-number">03</div>
+          <div class="banner-number">02</div>
         </div>
         <div style="margin:0 1.5rem;">
           <div class="game-wrapper" style="border-radius:0 0 12px 12px;overflow:hidden;">
@@ -1368,13 +1501,13 @@
               <div class="placeholder-text">Loading Interactive Game...</div>
               <div class="placeholder-shimmer"></div>
             </div>
-            <iframe src="https://reading-app.pages.dev/l1-05-w6j1-short-u/"
-              title="Short U Practice Game"
+            <iframe src="https://games.readingforall.com/l3-01-mental-floss"
+              title="FLOSS Rule Practice Game"
               allowfullscreen
               onload="this.previousElementSibling.style.opacity='0'"></iframe>
           </div>
           <div style="padding:1rem 0;text-align:center;">
-            <a href="https://reading-app.pages.dev/l1-05-w6j1-short-u/" target="_blank"
+            <a href="https://games.readingforall.com/l3-01-mental-floss" target="_blank"
               style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#15803d,#22c55e);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;padding:0.8rem 2rem;border-radius:999px;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.25);">
               🎮 Open Game in New Tab
             </a>
@@ -1382,21 +1515,27 @@
         </div>
       </div>
 
-      <!-- Song -->
+      <!-- Songs -->
       <div style="margin:1.5rem 1.5rem 1.5rem;">
         <div class="card-banner banner-violet" style="border-radius:12px 12px 0 0;">
-          <div class="banner-step">Step 4</div>
+          <div class="banner-step">Step 3</div>
           <div class="banner-icon">🎵</div>
           <div class="banner-text">
-            <div class="banner-title">Short U Song</div>
+            <div class="banner-title">FLOSS Rule Songs</div>
             <div class="banner-sub">Sing it to remember it</div>
           </div>
-          <div class="banner-number">04</div>
+          <div class="banner-number">03</div>
         </div>
         <div class="spotify-wrapper" style="background:rgba(255,255,255,0.02);border-radius:0 0 12px 12px;">
           <iframe
-            src="https://open.spotify.com/embed/track/3io3452YSBpZsmlcgmP46G?utm_source=generator&theme=0"
+            src="https://open.spotify.com/embed/track/6FhvRJjuY6sNfdL0kmBBbA?utm_source=generator&theme=0"
             width="100%" height="152"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+          <iframe
+            src="https://open.spotify.com/embed/track/3M3ddjgimSFeW1Xr8Bud0X?utm_source=generator&theme=0"
+            width="100%" height="152"
+            style="margin-top:0.8rem;"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"></iframe>
           <p class="spotify-note">Also available on Apple Music and all streaming platforms</p>
@@ -1436,7 +1575,7 @@
             <div class="step-num" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);">3</div>
             <div class="step-content">
               <div class="step-title">Go deeper.</div>
-              <div class="step-desc">If you want to work through this framework for your specific courses, students, and institutional context -- book a discovery call. We look at exactly what your classroom needs and build a plan together.</div>
+              <div class="step-desc">If you want to work through this framework for your specific courses, students, and institutional context. Book a discovery call. We look at exactly what your classroom needs and build a plan together.</div>
               <div style="margin-top:0.8rem;display:flex;gap:1rem;flex-wrap:wrap;">
                 <a href="https://lindacolasanti.com" target="_blank" style="color:var(--teal);font-weight:800;font-size:0.88rem;">lindacolasanti.com</a>
                 <a href="https://readingforall.com" target="_blank" style="color:var(--gold);font-weight:800;font-size:0.88rem;">readingforall.com</a>
